@@ -19,7 +19,7 @@ interface IUserRatesProps {
 export const UserRates: FC<IUserRatesProps> = ({ userId, status }) => {
 	const {
 		data: userRatesPages,
-		isFetching: isLoading,
+		isSuccess,
 		fetchNextPage,
 	} = useGetUserRates({
 		variables: {
@@ -55,7 +55,7 @@ export const UserRates: FC<IUserRatesProps> = ({ userId, status }) => {
 				})}
 			</div>
 
-			{isLoading ? (
+			{!isSuccess ? (
 				<Loader fullscreen />
 			) : (
 				<AnimeList>
