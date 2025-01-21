@@ -1,4 +1,4 @@
-import { router } from "@/app/router.tsx";
+import { router } from "@/app/routes/router.tsx";
 import { CONSTS } from "@/shared/consts/consts.ts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "@tanstack/react-router";
@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./app/styles/main.css";
+import "./styles/main.css";
 
 dayjs().locale("en");
 dayjs.extend(relativeTime);
