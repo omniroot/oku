@@ -1,0 +1,17 @@
+.anime_list {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 0 16px;
+}
+
+@media screen and (min-width: 600px) {
+	.user_rates {
+		.anime_list {
+			justify-content: flex-start;
+			gap: 12px;
+		}
+	}
+}

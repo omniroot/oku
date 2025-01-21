@@ -1,0 +1,57 @@
+.user_rates {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+
+	.filters {
+		display: flex;
+		overflow-x: scroll;
+		gap: 8px;
+
+		.filter {
+			border: 2px solid var(--color-secondary);
+			padding: 4px 8px;
+			border-radius: 8px;
+			transition: all 300ms;
+			cursor: pointer;
+
+			color: inherit;
+
+			text-decoration: none;
+
+			@media (hover: hover) {
+				&:hover {
+					filter: brightness(1.3);
+				}
+			}
+
+			&[data-active="true"] {
+				border: 2px solid var(--color-primary);
+			}
+		}
+	}
+	.anime_list {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 8px;
+		padding: 0 16px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.user_rates {
+		.anime_list {
+			justify-content: flex-start;
+			gap: 12px;
+			.anime_vertical_card {
+				width: calc(100% / 5 - 12px);
+
+				.poster {
+					aspect-ratio: 9/14;
+				}
+			}
+		}
+	}
+}

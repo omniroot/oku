@@ -1,0 +1,64 @@
+.anime_info {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+
+	/* padding: 8px; */
+	border-radius: 16px;
+	/* background-color: var(--color-secondary); */
+	gap: 8px;
+
+	.poster {
+		width: 160px;
+		aspect-ratio: 4 / 6;
+		background-color: transparent;
+		border: var(--border-ternary);
+		border-radius: 16px;
+
+		transition: var(--animation);
+
+		@media (hover: hover) {
+			&:hover {
+				border: var(--border-secondary);
+				background-color: var(--color-ternary);
+			}
+		}
+	}
+
+	.subinfo {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 4px;
+
+		.name {
+			font-size: var(--text-size-h4);
+			font-weight: 600;
+		}
+
+		.russian {
+			color: var(--color-subtext);
+			font-size: var(--text-size-h5);
+			font-weight: 500;
+		}
+
+		.description {
+			padding: 4px;
+			cursor: pointer;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 7;
+			-webkit-box-orient: vertical;
+			border-radius: var(--radius);
+
+			transition: var(--animation);
+			border: var(--border-transparent);
+
+			&:hover {
+				background-color: var(--color-ternary);
+				border: var(--border-secondary);
+			}
+		}
+	}
+}

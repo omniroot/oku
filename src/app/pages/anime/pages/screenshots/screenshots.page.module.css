@@ -1,0 +1,11 @@
+.screenshots_page {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	.screenshot {
+		width: 100%;
+		border-radius: 16px;
+		cursor: pointer;
+	}
+}

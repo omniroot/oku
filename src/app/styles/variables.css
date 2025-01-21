@@ -3,11 +3,16 @@
 	--color-primary: hsl(30, 88%, 64%);
 	--color-secondary: hsl(27, 14%, 15%);
 	--color-background: hsl(36, 10%, 10%);
+	--color-background-80: hsla(36, 10%, 10%, 80%);
 
-	--color-text-title: hsl(30, 100%, 98%);
-	--color-text-body: hsl(31, 90%, 92%);
+	--color-text: hsl(30, 100%, 98%);
+	--color-subtext: hsl(30, 30%, 90%);
+
+	--color-selection-text: hsl(30, 88%, 68%);
+	--color-selection-background: hsl(27, 14%, 20%);
 
 	/* Text size */
+	--text-size-mini: 0.675rem;
 	--text-size-small: 0.875rem;
 	--text-size-base: 1rem;
 	--text-size-medium: 1.25rem;
@@ -15,5 +20,11 @@
 	--text-size-xl: 1.75rem;
 	--text-size-2xl: 2rem;
 	--text-size-body: var(--text-size-base);
-	--text-size-title: var(--text-size-2xl);
+	--text-size-title: var(--text-size-large);
+
+	--text-weight-body: 400;
+	--text-weight-title: 600;
+	--text-weight: var(--text-weight-body);
+
+	--blur: blur(8px);
 }

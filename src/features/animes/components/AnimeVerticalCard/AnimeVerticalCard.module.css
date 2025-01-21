@@ -1,0 +1,52 @@
+.anime_vertical_card {
+	display: flex;
+	flex-direction: column;
+	width: 48%;
+	text-decoration: none;
+	color: inherit;
+
+	.poster {
+		width: 100%;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-radius: 16px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		padding: 4px;
+		aspect-ratio: 9/12;
+
+		.top {
+			width: 100%;
+			height: fit-content;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.bottom {
+			width: 100%;
+			height: fit-content;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
+
+	.info {
+		display: flex;
+
+		padding: 4px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.anime_vertical_card {
+		width: calc(100% / 5 - 12px);
+
+		.poster {
+			aspect-ratio: 9/14;
+		}
+	}
+}

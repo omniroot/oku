@@ -1,0 +1,26 @@
+.user_card {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	.avatar {
+		width: 64px;
+		height: 64px;
+
+		border-radius: 50%;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		gap: 4px;
+
+		.line {
+			width: 100%;
+			height: fit-content;
+			display: flex;
+			gap: 8px;
+		}
+	}
+}

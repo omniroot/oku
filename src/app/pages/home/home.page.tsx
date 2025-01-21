@@ -1,24 +1,25 @@
-import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { Link } from "@tanstack/react-router";
 import styles from "./home.page.module.css";
+import { useState } from "react";
+import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
+import { Button } from "@components/ui/Button/Button.tsx";
 
 export const HomePage = () => {
+	const [query, setQuery] = useState("");
+
+	const { data, refetch } = useGetAnimes({
+		variables: { search: query, limit: 2 },
+		enabled: false,
+	});
+
 	return (
 		<div className={styles.page}>
 			<h3>Home Page</h3>
-			<div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-				<Typography size="xl">Delete 2 files?</Typography>
-				<Typography size="base">Are you sure you want to delete this 2 files?</Typography>
-				<Typography size="xs">0.75rem</Typography>
-				<Typography size="sm">1rem</Typography>
-				<Typography size="base">1.25rem</Typography>
-				<Typography size="lg">1.5rem</Typography>
-				<Typography size="xl">1.75rem</Typography>
-				<Typography size="2xl">2rem</Typography>
-				<Typography size="3xl">2.25rem</Typography>
-				<Typography size="4xl">2.5rem</Typography>
-				<Typography size="5xl">2.75rem</Typography>
-				<Typography size="6xl">3rem</Typography>
-			</div>
+			<div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}></div>
+
+			<Link to="/users/$userId" params={{ userId: "1026254" }}>
+				User
+			</Link>
 
 			<div
 				style={{
@@ -46,6 +47,23 @@ export const HomePage = () => {
 						primary
 					</div>
 				</div>
+			</div>
+
+			<input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+			<Button onClick={() => refetch()}>search</Button>
+
+			<div className={styles.animeCards}>
+				{data &&
+					data.map((item) => (
+						<Link key={item.id} to={`/animes/$animeId`} params={{ animeId: String(item.id) }}>
+							<div className={styles.animeCard}>
+								<img src={item.poster.originalUrl} className={styles.animeImage} />
+								<div className={styles.animeInfo}>
+									<div className={styles.animeTitle}>{item.name}</div>
+								</div>
+							</div>
+						</Link>
+					))}
 			</div>
 
 			{/* <Link to=""></Link> */}
