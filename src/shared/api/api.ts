@@ -1,6 +1,6 @@
 import { CONSTS } from "@/shared/consts/consts.ts";
 // import { authApi } from "@/shared/services/auth/auth.api.ts";
-import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
+import axios from "axios";
 
 export const api = axios.create({
 	baseURL: "https://shikimori.one/api/",

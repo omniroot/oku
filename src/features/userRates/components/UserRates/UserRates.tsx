@@ -66,7 +66,7 @@ export const UserRates: FC<IUserRatesProps> = ({ userId, status }) => {
 							<AnimeVerticalCard
 								id={rate.anime.id}
 								poster={rate.anime.poster?.main2xUrl}
-								date={rate.anime.releasedOn.year || rate.anime.airedOn.year}
+								date={String(rate.anime.releasedOn.year || rate.anime.airedOn.year)}
 								episodes={rate.anime.episodes}
 								userEpisodes={rate.episodes}
 								kind={rate.anime.kind}

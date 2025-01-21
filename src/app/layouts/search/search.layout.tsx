@@ -5,7 +5,7 @@ import { AnimatePresence } from "motion/react";
 
 export const SearchLayout = () => {
 	const isMobile = useMediaQuery("only screen and (max-width: 768px)");
-	const { isOpened, toggleOpen } = useSearchStore();
+	const { isOpened } = useSearchStore();
 	return (
 		<>
 			{/* {(isTablet || isDesktop) && <FloatingSearchButton />} */}
