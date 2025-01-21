@@ -21,4 +21,5 @@ export const useGetAnimeFranchise = createQuery<IAnimeFranchise[], IGetAnimeFran
 		const reponse = await getAnimeFranchise(variables);
 		return reponse.data.nodes;
 	},
+	refetchInterval: 9999999999999,
 });

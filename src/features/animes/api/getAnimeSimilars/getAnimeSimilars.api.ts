@@ -18,4 +18,5 @@ export const useGetAnimeSimilars = createQuery<IAnimeSimilar[], IGetAnimeSimilar
 		const reponse = await getAnimeSimilars(variables);
 		return reponse.data;
 	},
+	refetchInterval: 9999999999999,
 });
