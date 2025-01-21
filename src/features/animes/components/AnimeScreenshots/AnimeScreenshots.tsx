@@ -20,7 +20,7 @@ export const AnimeScreenshots: FC<IAnimeScreenshotsProps> = ({ anime }) => {
 			actionsSlot={
 				<Button variant="secondary" asLink>
 					<Link from="/animes/$animeId" to="screenshots">
-						More
+						more
 						<RightArrowIcon />
 					</Link>
 				</Button>
