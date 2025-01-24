@@ -11,6 +11,15 @@
 	--color-selection-text: hsl(30, 88%, 68%);
 	--color-selection-background: hsl(27, 14%, 20%);
 
+	--color-shikimori: #cdd2d0;
+	--color-shikimori-hover: #1a4646;
+	--color-animego: #c33d37;
+	--color-animego-hover: #b03832;
+	--color-hanime: #d19c2e;
+	--color-hanime-hover: #b68628;
+	--color-nhentai: #ad0e33;
+	--color-nhentai-hover: #910f2d;
+
 	/* Text size */
 	--text-size-mini: 0.675rem;
 	--text-size-small: 0.875rem;

@@ -5,6 +5,7 @@ import { useGetAnilibEpisodes } from "@features/anilib/api/getAnilibEpisodes/get
 import { IAnime } from "@features/animes/api/anime.interface.ts";
 import { FC, useState } from "react";
 import styles from "./AnimeWatch.module.css";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
 
 const getEpisodes = (maxEpisodes: number) => {
 	const elements = Array.from({ length: maxEpisodes }, (_, i) => `${i + 1}`);
@@ -37,6 +38,9 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 	return (
 		<HeadingSection title="Watch">
 			<div className={styles.watch_content}>
+				<Typography>
+					Fix this. After clikc on similar anime and got back episode counts not update!
+				</Typography>
 				<div className={styles.episodes}>
 					{episodeElements.map((ell) => {
 						return (

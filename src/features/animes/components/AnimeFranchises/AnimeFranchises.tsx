@@ -12,6 +12,7 @@ interface IAnimeFranchisesProps {
 export const AnimeFranchises: FC<IAnimeFranchisesProps> = ({ anime }) => {
 	const { data: franchise } = useGetAnimeFranchise({ variables: { animeId: anime.id } });
 
+	if (!franchise?.length) return;
 	return (
 		<HeadingSection title="Franchises">
 			<div className={styles.content}>
