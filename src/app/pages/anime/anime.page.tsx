@@ -9,6 +9,8 @@ import { getRouteApi } from "@tanstack/react-router";
 import { useEffect } from "react";
 import styles from "./anime.page.module.css";
 import { AnimeSimilar } from "@features/animes/components/AnimeSimilar/AnimeSimilar.tsx";
+import { AnimeWatch } from "@features/animes/components/AnimeWatch/AnimeWatch.tsx";
+import { AnimeRate } from "@features/animes/components/AnimeRate/AnimeRate.tsx";
 
 export const AnimePage = () => {
 	const { setTitle, setIcon } = useHeader();
@@ -28,7 +30,8 @@ export const AnimePage = () => {
 				<>
 					<AnimeInfo anime={anime} />
 					<AnimeMoreInfo anime={anime} />
-					{/* <AnimeWatchContainer anime={anime} /> */}
+					<AnimeRate anime={anime} />
+					<AnimeWatch anime={anime} />
 					<AnimeScreenshots anime={anime} />
 					<AnimeFranchises anime={anime} />
 					<AnimeSimilar anime={anime} />

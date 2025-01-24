@@ -3,6 +3,10 @@ import styles from "./home.page.module.css";
 import { useState } from "react";
 import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { Button } from "@components/ui/Button/Button.tsx";
+import { VideoPlayerOld } from "@components/ui/VideoPlayerOld/VideoPlayerOld";
+import { VideoPlayer } from "@components/ui/VideoPlayer/VideoPlayer.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { Divider } from "@components/ui/Divider/Divider.tsx";
 
 export const HomePage = () => {
 	const [query, setQuery] = useState("");
@@ -65,6 +69,12 @@ export const HomePage = () => {
 						</Link>
 					))}
 			</div>
+
+			<Typography>New</Typography>
+			<VideoPlayer src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" />
+			<Divider spacing />
+			<Typography>Old</Typography>
+			<VideoPlayerOld src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" />
 
 			{/* <Link to=""></Link> */}
 		</div>

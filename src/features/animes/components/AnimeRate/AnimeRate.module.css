@@ -1,0 +1,10 @@
+.anime_rate_content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	.text_input {
+		width: 100%;
+	}
+}

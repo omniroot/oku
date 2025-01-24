@@ -1,0 +1,34 @@
+.watch_content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	.episodes {
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+
+		.episode {
+			min-width: 90px;
+			min-height: 30px;
+			color: var(--color-text);
+			background-color: var(--color-secondary);
+			padding: 4px 8px;
+			border: 0;
+			border-radius: 16px;
+			cursor: pointer;
+			transition: all 200ms;
+
+			&[data-active="true"] {
+				background-color: var(--color-primary);
+			}
+		}
+	}
+
+	.watch_button {
+		width: 100%;
+		/* color: var(--color-background); */
+		font-weight: 500;
+	}
+}
