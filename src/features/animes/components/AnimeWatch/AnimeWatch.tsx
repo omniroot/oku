@@ -6,11 +6,11 @@ import { IAnime } from "@features/animes/api/anime.interface.ts";
 import { FC } from "react";
 import styles from "./AnimeWatch.module.css";
 
-const getEpisodes = (maxEpisodes: number) => {
-	const elements = Array.from({ length: maxEpisodes }, (_, i) => `${i + 1}`);
+// const getEpisodes = (maxEpisodes: number) => {
+// 	const elements = Array.from({ length: maxEpisodes }, (_, i) => `${i + 1}`);
 
-	return elements;
-};
+// 	return elements;
+// };
 
 interface IAnimeWatchProps {
 	anime: IAnime;
