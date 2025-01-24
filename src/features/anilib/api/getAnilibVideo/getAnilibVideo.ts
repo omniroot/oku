@@ -16,12 +16,10 @@ interface IUseGetAnilibVideo {
 	config?: UseQueryOptions<IAnilibKodikPlayer[] | IAnilibAnimeLibPlayer[]>;
 }
 
-export const getAnilibVideo = ({ episodeId, config }: IGetAnilibVideo) => {
+export const getAnilibVideo = ({ episodeId }: IGetAnilibVideo) => {
 	return axios.get<{
 		data: IAnilibVideo;
-	}>(`https://api2.mangalib.me/api/episodes/${episodeId}`, {
-		
-	});
+	}>(`https://api2.mangalib.me/api/episodes/${episodeId}`, {});
 };
 
 export const useGetAnilibVideo = ({ episodeId, config }: IUseGetAnilibVideo) => {

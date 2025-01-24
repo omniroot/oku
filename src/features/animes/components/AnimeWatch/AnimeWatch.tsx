@@ -16,15 +16,13 @@ interface IAnimeWatchProps {
 	anime: IAnime;
 }
 export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
-	const [episodeElements, setEpisodeElements] = useState(
-		getEpisodes(anime.episodes || anime.episodesAired),
-	);
+	const [episodeElements] = useState(getEpisodes(anime.episodes || anime.episodesAired));
 	const [episodeActive, setEpisodeActive] = useState(episodeElements[0]);
 	const { data: anilibAnime } = useGetAnilibAnime({ name: anime.name });
 	const { data: episodes, isFetching: episodesLoading } = useGetAnilibEpisodes({
 		variables: { name: anime.name },
 	});
-	const [anilibEpisodeActive, setAnilibEpisodeActive] = useState(0);
+	// const [anilibEpisodeActive, setAnilibEpisodeActive] = useState(0);
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find((ell) => ell.number === episodeActive);
