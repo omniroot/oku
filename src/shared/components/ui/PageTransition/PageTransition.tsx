@@ -17,7 +17,7 @@ export const PageTransition: FC<IPageTransitionProps> = ({ children }) => {
 			animate="in"
 			exit="out"
 			variants={variants}
-			transition={{ duration: 0.3 }}
+			transition={{ duration: 0.2 }}
 		>
 			{children}
 		</motion.div>
