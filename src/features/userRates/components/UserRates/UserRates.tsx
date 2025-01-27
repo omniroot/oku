@@ -6,7 +6,7 @@ import { useGetUserRates } from "@features/userRates/api/getUserRates/getUserRat
 import { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
 import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { Link } from "@tanstack/react-router";
-import { FC } from "react";
+import { FC, memo } from "react";
 import styles from "./UserRates.module.css";
 
 const filters: IUserRateStatus[] = ["watching", "planned", "completed", "on_hold", "dropped"];
@@ -16,7 +16,7 @@ interface IUserRatesProps {
 	status: IUserRateStatus;
 }
 
-export const UserRates: FC<IUserRatesProps> = ({ userId, status }) => {
+export const UserRates: FC<IUserRatesProps> = memo(({ userId, status }) => {
 	const {
 		data: userRatesPages,
 		isSuccess,
@@ -82,4 +82,4 @@ export const UserRates: FC<IUserRatesProps> = ({ userId, status }) => {
 			</Button>
 		</div>
 	);
-};
+});
