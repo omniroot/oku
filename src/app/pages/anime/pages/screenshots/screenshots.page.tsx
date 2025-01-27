@@ -3,7 +3,6 @@ import { getRouteApi } from "@tanstack/react-router";
 import { HeadingSection } from "@ui/HeadingSection/HeadingSection.tsx";
 import { ImageView } from "@ui/ImageView/ImageView.tsx";
 import styles from "./screenshots.page.module.css";
-import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 
 export const ScreenshotsPage = () => {
 	const { animeId } = getRouteApi("/animes/$animeId/screenshots").useParams();
@@ -13,8 +12,8 @@ export const ScreenshotsPage = () => {
 	if (!anime) return;
 	return (
 		<div className={styles.screenshots_page}>
-			<HeadingSection title={`${anime.name} | Screenshots`}>
-				<AnimeList>
+			<HeadingSection title={`${anime.name} | Screenshots`} className={styles.heading}>
+				<div className={styles.screenshots_list}>
 					{anime.screenshots.map((screenshot) => (
 						<ImageView
 							key={screenshot.id}
@@ -24,7 +23,7 @@ export const ScreenshotsPage = () => {
 							className={styles.screenshot}
 						/>
 					))}
-				</AnimeList>
+				</div>
 			</HeadingSection>
 		</div>
 	);
