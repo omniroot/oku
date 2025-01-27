@@ -1,38 +1,60 @@
 import { Button } from "@components/ui/Button/Button.tsx";
 import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
+import { Loader } from "@components/ui/Loader/Loader.tsx";
+import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
 import { useGetAnilibAnime } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.ts";
 import { useGetAnilibEpisodes } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.api.ts";
+import { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
 import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./AnimeWatch.module.css";
 
-// const getEpisodes = (maxEpisodes: number) => {
-// 	const elements = Array.from({ length: maxEpisodes }, (_, i) => `${i + 1}`);
+const getEpisodes = (episodes: IAnilibEpisode[] | undefined) => {
+	if (!episodes) return [];
+	const elements = episodes.map((episode) => ({
+		value: String(episode.number),
+		label: episode.name ? `${episode.number} - ${episode.name}` : `${episode.number}`,
+	}));
+	console.log({ elements });
 
-// 	return elements;
-// };
+	return elements;
+};
+
+const getActiveEpisode = (episodes: ISelectOption[], userEpisode: number) => {
+	const episodeActive = episodes?.find((episode) => episode.value === String(userEpisode));
+	return episodeActive ?? episodes[0];
+};
 
 interface IAnimeWatchProps {
 	anime: IAnime;
 }
 export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
-	// const [episodeElements] = useState(getEpisodes(anime.episodes || anime.episodesAired));
-	// const [episodeActive, setEpisodeActive] = useState(episodeElements[0]);
 	const { data: anilibAnime } = useGetAnilibAnime({ name: anime.name });
-	const { data: episodes, isFetching: episodesLoading } = useGetAnilibEpisodes({
+	const {
+		data: episodes,
+		isFetching: episodesLoading,
+		isSuccess,
+	} = useGetAnilibEpisodes({
 		variables: { name: anime.name },
 	});
-	// const [anilibEpisodeActive, setAnilibEpisodeActive] = useState(0);
+	const [episodeElements, setEpisodeElements] = useState<ISelectOption[]>([]);
+	const [episodeActive, setEpisodeActive] = useState<ISelectOption>();
 
-	// const onWatchButtonClick = () => {
-	// 	const anilibEpisode = episodes?.find((ell) => ell.number === episodeActive);
+	useEffect(() => {
+		if (episodes && isSuccess) {
+			setEpisodeElements(getEpisodes(episodes));
+		}
+	}, [episodes, isSuccess]);
 
-	// 	window.open(
-	// 		`https://anilib.me/ru/anime/${anilibAnime?.[0].slug_url}/watch?episode=${anilibEpisode?.id}`,
-	// 		"_blank",
-	// 	);
-	// 	// getLink();
-	// };
+	useEffect(() => {
+		if (episodeElements) {
+			setEpisodeActive(getActiveEpisode(episodeElements, anime.userRate?.episodes));
+		}
+	}, [episodeElements, anime.userRate?.episodes]);
+
+	console.log("rerender");
+
+	console.log({ episodeActive, episodeElements, episodes });
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find(
@@ -43,36 +65,25 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 			`https://anilib.me/ru/anime/${anilibAnime?.[0].slug_url}/watch?episode=${anilibEpisode?.id}`,
 			"_blank",
 		);
-		// getLink();
 	};
+
+	if (episodesLoading || !episodeActive) return <Loader />;
 
 	return (
 		<HeadingSection title="Watch">
 			<div className={styles.watch_content}>
-				{/* <Typography>
-					Fix this. After clikc on similar anime and got back episode counts not update!
-				</Typography> */}
-				{/* <div className={styles.episodes}>
-					{episodeElements.map((ell) => {
-						return (
-							<button
-								className={styles.episode}
-								onClick={() => setEpisodeActive(ell)}
-								data-active={ell === episodeActive}
-							>
-								{ell}
-							</button>
-						);
-					})}
-				</div> */}
-				<Button
-					className={styles.watch_button}
-					loading={episodesLoading}
-					onClick={onWatchButtonClick}
-				>
-					Watch {anime.userRate.episodes || 1} episode
+				<Select
+					options={episodeElements}
+					defaultValue={episodeActive}
+					onChange={(selectedOption) => {
+						if (selectedOption) {
+							setEpisodeActive(selectedOption);
+						}
+					}}
+				/>
+				<Button className={styles.watch_button} onClick={onWatchButtonClick}>
+					Watch {episodeActive.value} episode
 				</Button>
-				{/* <Typography>{anilibEpisodeActive}</Typography> */}
 			</div>
 		</HeadingSection>
 	);
