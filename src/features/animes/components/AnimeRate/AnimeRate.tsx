@@ -26,7 +26,7 @@ export const AnimeRate: FC<IAnimeRateProps> = ({ anime }) => {
 		label: status,
 	}));
 	const defaultStatusValue = statusOptions.find(
-		(option) => option.value === (anime.userRate?.status || "watching"),
+		(option) => option.value === anime.userRate?.status,
 	);
 
 	const { mutate: updateUserRate } = useUpdateUserRate();
@@ -62,10 +62,12 @@ export const AnimeRate: FC<IAnimeRateProps> = ({ anime }) => {
 					<Select
 						defaultValue={defaultEpisodeValue}
 						options={episodeOptions}
+						placeholder="Episode"
 						onChange={(n) => onEpisodesSelectChange(n)}
 					/>
 					<Select
 						defaultValue={defaultStatusValue}
+						placeholder="Status"
 						options={statusOptions}
 						onChange={(n) => onStatusSelectChange(n)}
 					/>
