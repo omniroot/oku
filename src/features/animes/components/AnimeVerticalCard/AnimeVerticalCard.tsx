@@ -39,7 +39,7 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 					<Badge>{kind}</Badge>
 				</div>
 				<div className={styles.bottom}>
-					<Badge>{userEpisodes ? `${userEpisodes}/${episodes}` : `${episodes}`}</Badge>
+					<Badge>{userEpisodes ? `${userEpisodes} / ${episodes}` : `${episodes}`}</Badge>
 				</div>
 			</div>
 			<div className={styles.info}>
