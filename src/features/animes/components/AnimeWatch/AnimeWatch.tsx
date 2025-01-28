@@ -58,7 +58,7 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find(
-			(ell) => ell.number === String(anime.userRate.episodes || 1),
+			(ell) => ell.number === String(anime.userRate?.episodes || 1),
 		);
 
 		window.open(
