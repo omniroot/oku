@@ -9,6 +9,7 @@
 	border: 2px solid transparent;
 	border-radius: 16px;
 	gap: var(--gap);
+	font: inherit;
 
 	cursor: pointer;
 	transition: var(--animation);
@@ -28,12 +29,12 @@
 .button[data-variant="outline"] {
 	color: var(--color-text);
 	background-color: transparent;
-	border: var(--border-ternary);
+	border: 2px solid var(--color-secondary);
 
 	@media (hover: hover) {
 		&:hover {
-			border: var(--border-secondary);
-			background-color: var(--color-ternary);
+			/* border: 2px solid var(--color-secondary); */
+			/* background-color: var(--color-ternary); */
 		}
 	}
 }
