@@ -55,7 +55,7 @@ export const Select: React.FC<ISelectProps> = ({
 	}, [isOpen, selectedValue]);
 
 	const handleSelectClick = () => {
-		setIsOpen(!isOpen);
+		setIsOpen((prev) => !prev);
 	};
 
 	const handleOptionClick = (option: ISelectOption) => {
@@ -66,7 +66,7 @@ export const Select: React.FC<ISelectProps> = ({
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
 		if (e.key === "Enter" || e.key === " ") {
-			setIsOpen(!isOpen);
+			setIsOpen((prev) => !prev);
 		}
 	};
 
