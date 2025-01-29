@@ -37,6 +37,13 @@ export const Select: React.FC<ISelectProps> = ({
 	}, []);
 
 	useEffect(() => {
+		if (defaultValue) {
+			console.log("def value set", defaultValue);
+			setSelectedValue(defaultValue);
+		}
+	}, [defaultValue]);
+
+	useEffect(() => {
 		if (isOpen && selectedValue && optionsContainerRef.current) {
 			const activeElement = optionsContainerRef.current.querySelector(
 				`li[data-value="${selectedValue.value}"]`,
