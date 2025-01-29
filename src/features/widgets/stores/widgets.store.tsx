@@ -1,6 +1,6 @@
 import { HelloWidget } from "@features/widgets/components/HelloWidget/HelloWidget.tsx";
 import { TestWidget } from "@features/widgets/components/TestWidget/TestWidget.tsx";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 export type IWidgets = "hello" | "test";
