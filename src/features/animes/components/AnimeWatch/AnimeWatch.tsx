@@ -58,7 +58,7 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find(
-			(ell) => ell.number === String(anime.userRate?.episodes || 1),
+			(ell) => ell.number === String(episodeActive?.value || anime.userRate?.episodes || 1),
 		);
 
 		window.open(
@@ -67,7 +67,8 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 		);
 	};
 
-	if (episodesLoading || !episodeActive) return <Loader />;
+	if (episodesLoading) return <Loader />;
+	if (!episodes?.length) return null;
 
 	return (
 		<HeadingSection title="Watch">
@@ -81,9 +82,11 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 						}
 					}}
 				/>
-				<Button className={styles.watch_button} onClick={onWatchButtonClick}>
-					Watch {episodeActive.value} episode
-				</Button>
+				{episodeActive && (
+					<Button className={styles.watch_button} onClick={onWatchButtonClick}>
+						Watch {episodeActive.value} episode
+					</Button>
+				)}
 			</div>
 		</HeadingSection>
 	);
