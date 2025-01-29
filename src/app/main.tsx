@@ -19,7 +19,7 @@ const client = new QueryClient({
 			staleTime: CONSTS.STALE_TIME,
 			refetchOnWindowFocus: false,
 			retryDelay: 1000,
-			retry: 2, // TODO its temporary fix, after adding intereeceptor in api, chage it to 2-3
+			retry: 2,
 		},
 	},
 });
