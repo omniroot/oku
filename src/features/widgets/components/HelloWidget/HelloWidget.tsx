@@ -27,8 +27,6 @@ export const HelloWidget = () => {
 			<AnimatePresence>
 				{isOpen && (
 					<BottomSheet onOutsideClick={() => setIsOpen(!isOpen)} title="Widgets list">
-						<Typography>Widgets list</Typography>
-
 						{Object.entries(widgets).map(([name, state]) => {
 							return (
 								<Switch
