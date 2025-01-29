@@ -34,6 +34,7 @@ export const HelloWidget = () => {
 								<Switch
 									title={name}
 									state={state}
+									disabled={name === "hello"}
 									onChange={() => toggleWidget(name as IWidgets)}
 								/>
 							);
