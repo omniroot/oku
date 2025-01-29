@@ -25,7 +25,11 @@ export const Header = () => {
 						<SearchIcon />
 					</Link>
 				</Button>
-				<SettingsIcon />
+				<Button variant="ghost" asLink>
+					<Link to="/settings">
+						<SettingsIcon />
+					</Link>
+				</Button>
 			</div>
 		</header>
 	);

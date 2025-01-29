@@ -9,6 +9,7 @@ import { discoveryRoute } from "@/app/routes/discovery/discovery.route.tsx";
 import { latestsRoute } from "@/app/routes/discovery/latests.route.tsx";
 import { ongoingsRoute } from "@/app/routes/discovery/ongoings.route.tsx";
 import { loginRoute } from "@/app/routes/login/login.route.tsx";
+import { settingsRoute } from "@/app/routes/settings/settings.route.tsx";
 import { userAchievementsRoute } from "@/app/routes/users/achievements.route.tsx";
 import { userFavoritesRoute } from "@/app/routes/users/favorites.route.tsx";
 import { userFriendsRoute } from "@/app/routes/users/friends.route.tsx";
@@ -48,6 +49,7 @@ const routeTree = rootRoute.addChildren([
 	latestsRoute,
 	critiquesRoute,
 	collectionsRoute,
+	settingsRoute,
 	loginRoute,
 ]);
 

@@ -29,7 +29,7 @@
 	}
 
 	.right {
-		gap: 16px;
+		gap: 8px;
 		svg {
 			color: var(--color-primary);
 		}
