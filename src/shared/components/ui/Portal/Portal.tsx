@@ -12,7 +12,12 @@ export const Portal: FC<IPortalProps> = ({ children, show, zIndex = 10000 }) => 
 	const element = (
 		<AnimatePresence>
 			{show && (
-				<motion.div initial={{ opacity: 0, zIndex }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+				<motion.div
+					initial={{ opacity: 0, zIndex }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2 }}
+				>
 					{children}
 				</motion.div>
 			)}
