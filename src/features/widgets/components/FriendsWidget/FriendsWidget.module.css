@@ -1,0 +1,39 @@
+.friends_widget {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	/* color: var(--color-background); */
+	background-color: var(--color-secondary);
+	padding: 8px;
+	border-radius: 12px;
+
+	.friend {
+		width: 100%;
+		display: flex;
+		gap: 8px;
+
+		.avatar {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+		}
+
+		.info {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			.line {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.badge {
+				background-color: var(--color-background);
+			}
+		}
+	}
+}
