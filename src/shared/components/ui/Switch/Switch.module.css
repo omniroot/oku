@@ -16,6 +16,7 @@
 		background-color: var(--color-secondary);
 		border-radius: 32px;
 		cursor: pointer;
+		transition: background-color 300ms;
 
 		&[data-disabled="true"] {
 			cursor: auto;
@@ -27,6 +28,7 @@
 			height: 20px;
 			background-color: var(--color-ternary);
 			border-radius: 50%;
+			transition: background-color 300ms;
 
 			&[data-enabled="true"] {
 				background-color: var(--color-primary);
