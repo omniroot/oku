@@ -6,11 +6,13 @@ interface ISwitchProps {
 	title: string;
 	state: boolean;
 	onChange?: (state: boolean) => void;
+	disabled?: boolean;
 }
-export const Switch: FC<ISwitchProps> = ({ title, state, onChange }) => {
+export const Switch: FC<ISwitchProps> = ({ title, state, onChange, disabled }) => {
 	const [enabled, setEnabled] = useState(state);
 
 	const toggleEnabled = () => {
+		if (disabled) return;
 		const nextState = !enabled;
 		setEnabled(nextState);
 		onChange?.(nextState);
@@ -23,6 +25,7 @@ export const Switch: FC<ISwitchProps> = ({ title, state, onChange }) => {
 				className={styles.checkbox}
 				style={{ justifyContent: enabled ? "flex-end" : "flex-start" }}
 				onClick={toggleEnabled}
+				data-disabled={disabled}
 			>
 				<motion.div
 					className={styles.state}
@@ -32,6 +35,7 @@ export const Switch: FC<ISwitchProps> = ({ title, state, onChange }) => {
 					animate={{ scale: enabled ? 1 : 0.9 }}
 					exit={{ scale: 0.5 }}
 					transition={{ duration: 0.2 }}
+					data-disabled={disabled}
 				></motion.div>
 			</motion.div>
 		</div>
