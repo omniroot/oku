@@ -4,6 +4,10 @@ import { TestWidget } from "@features/widgets/components/TestWidget/TestWidget.t
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
+// TODO:
+// Придумать как хранить инфу об виджетах, что бы там было состояние, можно ли его выключать и настройки для виджета
+// Придумать как хранить версию, чтобы сбрасывать к дефолтному состоянию если версия в localStorage устарела
+
 export type IWidgets = "hello" | "friends" | "test";
 
 export const WidgetComponents: Record<IWidgets, React.ReactNode> = {
