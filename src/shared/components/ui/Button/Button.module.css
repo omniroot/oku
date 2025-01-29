@@ -44,6 +44,11 @@
 	background-color: var(--color-secondary);
 }
 
+.button[data-variant="background"] {
+	color: var(--color-primary);
+	background-color: var(--color-background);
+}
+
 .button[data-variant="ghost"] {
 	color: var(--color-text);
 	background-color: transparent;

@@ -15,6 +15,7 @@ interface IButtonProps
 		| "primary"
 		| "outline"
 		| "secondary"
+		| "background"
 		| "ghost"
 		| "gradient"
 		| "animego"
