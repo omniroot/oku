@@ -40,23 +40,23 @@ export const DiscoveryPage = () => {
 			<div className={styles.options}>
 				<div className={styles.line}>
 					<Button variant="outline" className={styles.option} asLink>
-						<Link to="/discovery">Ongoings</Link>
+						<Link to="/discovery/ongoings">Ongoings</Link>
 					</Button>
 					<Button variant="outline" className={styles.option} asLink>
-						<Link to="/discovery">Latests</Link>
-					</Button>
-				</div>
-				<div className={styles.line}>
-					<Button variant="outline" className={styles.option} asLink>
-						<Link to="/discovery">Critiques</Link>
-					</Button>
-					<Button variant="outline" className={styles.option} asLink>
-						<Link to="/discovery">Collections</Link>
+						<Link to="/discovery/latests">Latests</Link>
 					</Button>
 				</div>
 				<div className={styles.line}>
 					<Button variant="outline" className={styles.option} asLink>
-						<Link to="/discovery">Calendar</Link>
+						<Link to="/discovery/critiques">Critiques</Link>
+					</Button>
+					<Button variant="outline" className={styles.option} asLink>
+						<Link to="/discovery/collections">Collections</Link>
+					</Button>
+				</div>
+				<div className={styles.line}>
+					<Button variant="outline" className={styles.option} asLink>
+						<Link to="/discovery/calendar">Calendar</Link>
 					</Button>
 				</div>
 			</div>

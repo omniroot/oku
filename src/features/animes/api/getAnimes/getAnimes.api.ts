@@ -3,7 +3,7 @@ import { IAnime, IAnimeResponse } from "@features/animes/api/anime.interface.ts"
 import { GET_ANIMES } from "@features/animes/api/getAnimes/getAnimes.graphql.ts";
 import { AnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
 import { AxiosRequestConfig } from "axios";
-import { createQuery } from "react-query-kit";
+import { createInfiniteQuery, createQuery } from "react-query-kit";
 
 interface IGetAnimes {
 	animeId?: string;
@@ -11,6 +11,7 @@ interface IGetAnimes {
 	status?: AnimeStatus;
 	limit?: number;
 	config?: AxiosRequestConfig;
+	page?: number;
 }
 
 export const getAnimes = ({
@@ -18,6 +19,7 @@ export const getAnimes = ({
 	search = "",
 	status = "",
 	limit = 15,
+	page = 1,
 	config,
 }: IGetAnimes) => {
 	return graphql<IAnimeResponse>({
@@ -27,6 +29,7 @@ export const getAnimes = ({
 			search: search,
 			limit: limit,
 			status: status,
+			page: page,
 		},
 		config,
 	});
@@ -37,5 +40,17 @@ export const useGetAnimes = createQuery<IAnime[], IGetAnimes>({
 	fetcher: async (variables) => {
 		const reponse = await getAnimes(variables);
 		return reponse.data.data.animes;
+	},
+});
+
+export const useGetAnimesInfinite = createInfiniteQuery<IAnime[], IGetAnimes>({
+	queryKey: ["getAnimesInfinite"],
+	fetcher: async (variables, { pageParam }) => {
+		const reponse = await getAnimes({ ...variables, page: pageParam });
+		return reponse.data.data.animes;
+	},
+	initialPageParam: 1,
+	getNextPageParam: (lastPage, pages) => {
+		return lastPage.length === 15 ? pages.length + 1 : undefined;
 	},
 });

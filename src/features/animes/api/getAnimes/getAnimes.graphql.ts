@@ -1,6 +1,6 @@
 export const GET_ANIMES = `
-query ($ids: String, $search: String, $limit: PositiveInt, $status: AnimeStatusString) {
-		animes(ids: $ids, search: $search, limit: $limit, status: $status) {
+query ($ids: String, $search: String, $page: PositiveInt, $limit: PositiveInt, $status: AnimeStatusString) {
+		animes(ids: $ids, search: $search, page: $page, limit: $limit, status: $status) {
 			id
 			name
 			russian
