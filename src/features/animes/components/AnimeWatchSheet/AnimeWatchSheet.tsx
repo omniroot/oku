@@ -7,7 +7,8 @@ import { useGetAnilibEpisodes } from "@features/anilib/api/getAnilibEpisodes/get
 import { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
 import { IAnime } from "@features/animes/api/anime.interface.ts";
 import { FC, useEffect, useState } from "react";
-import styles from "./AnimeWatch.module.css";
+import styles from "./AnimeWatchSheet.module.css";
+import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 
 const getEpisodes = (episodes: IAnilibEpisode[] | undefined) => {
 	if (!episodes) return [];
@@ -25,10 +26,12 @@ const getActiveEpisode = (episodes: ISelectOption[], userEpisode: number) => {
 	return episodeActive ?? episodes[0];
 };
 
-interface IAnimeWatchProps {
+interface IAnimeWatchSheetProps {
 	anime: IAnime;
+	isShow: boolean;
+	onOutsideClick: () => void;
 }
-export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
+export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({ anime, isShow, onOutsideClick }) => {
 	const { data: anilibAnime } = useGetAnilibAnime({ name: anime.name });
 	const {
 		data: episodes,
@@ -52,9 +55,9 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 		}
 	}, [episodeElements, anime.userRate?.episodes]);
 
-	console.log("rerender");
+	// console.log("rerender");
 
-	console.log({ episodeActive, episodeElements, episodes });
+	// console.log({ episodeActive, episodeElements, episodes });
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find(
@@ -71,7 +74,7 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 	if (!episodes?.length) return null;
 
 	return (
-		<HeadingSection title="Watch">
+		<BottomSheet isShow={isShow} onOutsideClick={onOutsideClick} title="Watch">
 			<div className={styles.watch_content}>
 				<Select
 					options={episodeElements}
@@ -83,11 +86,18 @@ export const AnimeWatch: FC<IAnimeWatchProps> = ({ anime }) => {
 					}}
 				/>
 				{episodeActive && (
-					<Button className={styles.watch_button} onClick={onWatchButtonClick}>
-						Watch {episodeActive.value} episode
-					</Button>
+					<>
+						<Button className={styles.watch_button} onClick={onWatchButtonClick}>
+							Watch {episodeActive.value} episode
+						</Button>
+					</>
 				)}
 			</div>
-		</HeadingSection>
+		</BottomSheet>
 	);
 };
+
+// <HeadingSection title="Watch">
+{
+	/* </HeadingSection> */
+}
