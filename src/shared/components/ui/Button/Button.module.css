@@ -4,11 +4,11 @@
 	align-items: center;
 
 	width: fit-content;
-	padding: 4px 8px;
+	padding: 8px 12px;
 
 	border: 2px solid transparent;
 	border-radius: 16px;
-	gap: var(--gap);
+	gap: 4px;
 	font: inherit;
 
 	cursor: pointer;
