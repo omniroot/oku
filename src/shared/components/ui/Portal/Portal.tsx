@@ -30,9 +30,9 @@ export const Portal: FC<IPortalProps> = ({
 		<AnimatePresence>
 			{isShow && (
 				<motion.div
-					initial={{ opacity: 0, zIndex }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
+					initial={{ opacity: 0, backdropFilter: "blur(0px)", zIndex }}
+					animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
+					exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
 					transition={{ duration: 0.2 }}
 					onClick={onClose}
 					className={styles.container}

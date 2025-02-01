@@ -1,32 +1,3 @@
-.container {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	padding: var(--padding);
-	background-color: var(--color-background-80);
-	backdrop-filter: var(--blur);
-	cursor: pointer;
-	gap: 4px;
-
-	z-index: 10000;
-
-	.indicator {
-		width: 10%;
-		height: 4px;
-		border-radius: 16px;
-		background-color: var(--color-ternary);
-		transition: var(--animation);
-		margin: 4px 0 4px 50%;
-		translate: -50%;
-	}
-}
-
 .bottom_sheet {
 	width: 100%;
 	display: flex;
@@ -38,6 +9,25 @@
 	background-color: var(--color-background);
 	border: 2px solid var(--color-secondary);
 	border-radius: 16px;
+	transition: height 200ms;
+	overflow: hidden;
+
+	.indicator_container {
+		width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8px;
+
+		.indicator {
+			width: 10%;
+			height: 6px;
+			border-radius: 16px;
+			background-color: var(--color-ternary);
+			transition: var(--animation);
+		}
+	}
 
 	.title {
 		padding: 4px;
@@ -49,6 +39,7 @@
 		display: flex;
 		flex-direction: row;
 		gap: 8px;
+		overflow: auto;
 
 		&[data-orientation="vertical"] {
 			flex-direction: column;
