@@ -16,7 +16,7 @@ interface IAnimeSimilarProps {
 
 export const AnimeSimilar: FC<IAnimeSimilarProps> = ({ anime }) => {
 	const { data: similarAnimes } = useGetAnimeSimilars({ variables: { animeId: anime.id } });
-	console.log({ similarAnimes });
+	// console.log({ similarAnimes });
 
 	let count = 0;
 
