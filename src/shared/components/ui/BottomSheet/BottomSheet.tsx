@@ -1,50 +1,50 @@
-import { Divider } from "@ui/Divider/Divider.tsx";
+import { Portal } from "@components/ui/Portal/Portal.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { FC, MouseEvent, ReactNode, useEffect } from "react";
-import { createPortal } from "react-dom";
+import { FC, MouseEvent, ReactNode } from "react";
 import styles from "./BottomSheet.module.css";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
+
 interface IBottomSheetProps {
 	children?: ReactNode;
+	isShow?: boolean;
 	className?: string;
 	title?: string;
+	contentOrientation?: "vertical" | "horizontal";
 	onOutsideClick?: () => void;
 }
+
 export const BottomSheet: FC<IBottomSheetProps> = ({
 	children,
 	className,
+	isShow = false,
 	title,
+	contentOrientation = "vertical",
 	onOutsideClick = () => {},
 }) => {
-	const _onOutsideClick = () => {
-		onOutsideClick();
-	};
-
-	const _onBottomSheetClick = (event: MouseEvent<HTMLDivElement>) => {
+	const onBottomSheetClick = (event: MouseEvent<HTMLDivElement>) => {
 		event.stopPropagation();
 	};
-
-	useEffect(() => {
-		document.body.style.overflow = "hidden";
-
-		return () => {
-			document.body.style.overflow = "auto";
-		};
-	}, []);
 
 	const _class = clsx(styles.bottom_sheet, className);
 
 	return (
-		<>
-			{createPortal(
+		<Portal isShow={isShow} onClose={onOutsideClick}>
+			<motion.div
+				className={styles.container}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.2 }}
+				onClick={onOutsideClick}
+			>
 				<motion.div
-					className={styles.container}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
+					initial={{ y: 50 }}
+					animate={{ y: 0 }}
+					exit={{ y: 50 }}
 					transition={{ duration: 0.2 }}
-					onClick={_onOutsideClick}
+					className={_class}
+					onClick={onBottomSheetClick}
 				>
 					<motion.div
 						className={styles.indicator}
@@ -53,28 +53,16 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 						exit={{ y: 50 }}
 						transition={{ duration: 0.2 }}
 					></motion.div>
-					<motion.div
-						initial={{ y: 50 }}
-						animate={{ y: 0 }}
-						exit={{ y: 50 }}
-						transition={{ duration: 0.2 }}
-						className={_class}
-						onClick={_onBottomSheetClick}
-					>
-						{title && (
-							<>
-								<Typography size="title" weight="title">
-									{title}
-								</Typography>
-								<Divider />
-							</>
-						)}
+					{title && (
+						<Typography size="title" weight="title" className={styles.title}>
+							{title}
+						</Typography>
+					)}
+					<div className={styles.content} data-orientation={contentOrientation}>
 						{children}
-					</motion.div>
-				</motion.div>,
-
-				document.body,
-			)}
-		</>
+					</div>
+				</motion.div>
+			</motion.div>
+		</Portal>
 	);
 };
