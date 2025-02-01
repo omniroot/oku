@@ -47,13 +47,13 @@ export const AnimeInfo: FC<IAnimeInfoProps> = ({ anime }) => {
 				)}
 			</div>
 
-			<AnimatePresence>
-				{descriptionBottomSheet && (
-					<BottomSheet title="Description" onOutsideClick={toggleDescriptionBottomSheet}>
-						<div dangerouslySetInnerHTML={{ __html: parseShikimoriText(anime.description) }}></div>
-					</BottomSheet>
-				)}
-			</AnimatePresence>
+			<BottomSheet
+				isShow={descriptionBottomSheet}
+				title="Description"
+				onOutsideClick={toggleDescriptionBottomSheet}
+			>
+				<div dangerouslySetInnerHTML={{ __html: parseShikimoriText(anime.description) }}></div>
+			</BottomSheet>
 		</div>
 	);
 };
