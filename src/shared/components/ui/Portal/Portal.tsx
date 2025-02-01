@@ -19,12 +19,14 @@ export const Portal: FC<IPortalProps> = ({
 	layoutPosition = "bottom",
 }) => {
 	useEffect(() => {
-		document.body.style.overflow = "hidden";
+		if (isShow) {
+			document.body.style.overflow = "hidden";
+		}
 
 		return () => {
 			document.body.style.overflow = "auto";
 		};
-	}, []);
+	}, [isShow]);
 
 	const element = (
 		<AnimatePresence>
