@@ -1,12 +1,11 @@
 import { parseShikimoriText } from "@/shared/utils/parseShikimoriText.ts";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { IAnime } from "@features/animes/api/anime.interface.ts";
 import { BottomSheet } from "@ui/BottomSheet/BottomSheet.tsx";
 import { Divider } from "@ui/Divider/Divider.tsx";
 import { ImageView } from "@ui/ImageView/ImageView.tsx";
-import { AnimatePresence } from "motion/react";
 import { FC, useState } from "react";
 import styles from "./AnimeInfo.module.css";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
 
 interface IAnimeInfoProps {
 	anime: IAnime;

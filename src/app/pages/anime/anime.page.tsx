@@ -4,15 +4,12 @@ import { AnimeFranchises } from "@features/animes/components/AnimeFranchises/Ani
 import { AnimeInfo } from "@features/animes/components/AnimeInfo/AnimeInfo.tsx";
 import { AnimeMoreInfo } from "@features/animes/components/AnimeMoreInfo/AnimeMoreInfo.tsx";
 import { AnimeScreenshots } from "@features/animes/components/AnimeScreenshots/AnimeScreenshots.tsx";
+import { AnimeSimilar } from "@features/animes/components/AnimeSimilar/AnimeSimilar.tsx";
+import { AnimeWatchContainer } from "@features/animes/components/AnimeWatchContainer/AnimeWatchContainer.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect } from "react";
 import styles from "./anime.page.module.css";
-import { AnimeSimilar } from "@features/animes/components/AnimeSimilar/AnimeSimilar.tsx";
-import { AnimeWatch } from "@features/animes/components/AnimeWatchSheet/AnimeWatchSheet";
-import { AnimeRate } from "@features/animes/components/AnimeRate/AnimeRate.tsx";
-import { HentaiWatch } from "@features/animes/components/HentaiWatch/HentaiWatch.tsx";
-import { AnimeWatchContainer } from "@features/animes/components/AnimeWatchContainer/AnimeWatchContainer.tsx";
 
 export const AnimePage = () => {
 	const { setTitle, setIcon } = useHeader();
@@ -22,7 +19,7 @@ export const AnimePage = () => {
 
 	console.log({ anime });
 
-	const isHentai = anime?.genres.some((g) => g.name === "Hentai");
+	// const isHentai = anime?.genres.some((g) => g.name === "Hentai");
 
 	useEffect(() => {
 		setTitle("Anime");

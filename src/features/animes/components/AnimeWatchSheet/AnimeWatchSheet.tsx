@@ -1,5 +1,5 @@
+import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
-import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
 import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
 import { useGetAnilibAnime } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.ts";
@@ -8,7 +8,6 @@ import { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilib
 import { IAnime } from "@features/animes/api/anime.interface.ts";
 import { FC, useEffect, useState } from "react";
 import styles from "./AnimeWatchSheet.module.css";
-import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 
 const getEpisodes = (episodes: IAnilibEpisode[] | undefined) => {
 	if (!episodes) return [];

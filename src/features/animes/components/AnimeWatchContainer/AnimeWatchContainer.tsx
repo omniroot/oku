@@ -1,27 +1,25 @@
 // import { WatchBottomSheet } from "@pages/anime/_components/AnimeWatchContainer/_components/WatchBottomSheet/WatchBottomSheet.tsx";
+import { IAnime } from "@features/animes/api/anime.interface.ts";
+import { AnimeWatchSheet } from "@features/animes/components/AnimeWatchSheet/AnimeWatchSheet.tsx";
 import { Button } from "@ui/Button/Button.tsx";
 import { Divider } from "@ui/Divider/Divider.tsx";
 import clsx from "clsx";
-import { AnimatePresence } from "motion/react";
 import { FC, useState } from "react";
 import styles from "./AnimeWatchContainer.module.css";
-import { BottomSheet } from "@ui/BottomSheet/BottomSheet.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { AnimeWatchSheet } from "@features/animes/components/AnimeWatchSheet/AnimeWatchSheet.tsx";
 interface IWatchButtonProps {
 	anime: IAnime;
 }
 export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 	const [isWatchSheetOpen, setIsWatchSheetOpen] = useState(false);
-	const [userRateEditBottomSheetOpen, setUserRateEditBottomSheetOpen] = useState(false);
-	const isHentai = anime.genres.some((genre) => genre.name === "Hentai");
+	// const [userRateEditBottomSheetOpen, setUserRateEditBottomSheetOpen] = useState(false);
+	// const isHentai = anime.genres.some((genre) => genre.name === "Hentai");
 
 	const onUserRateAddClick = () => {
-		setUserRateEditBottomSheetOpen((prev) => !prev);
+		// setUserRateEditBottomSheetOpen((prev) => !prev);
 	};
 
 	const onUserRateEditClick = () => {
-		setUserRateEditBottomSheetOpen((prev) => !prev);
+		// setUserRateEditBottomSheetOpen((prev) => !prev);
 	};
 
 	return (
