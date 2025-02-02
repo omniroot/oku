@@ -51,7 +51,9 @@ export const AnimeInfo: FC<IAnimeInfoProps> = ({ anime }) => {
 				title="Description"
 				onOutsideClick={toggleDescriptionBottomSheet}
 			>
-				<div dangerouslySetInnerHTML={{ __html: parseShikimoriText(anime.description) }}></div>
+				<div
+					dangerouslySetInnerHTML={{ __html: parseShikimoriText(anime.description || "") }}
+				></div>
 			</BottomSheet>
 		</div>
 	);
