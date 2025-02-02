@@ -23,6 +23,7 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 	onOutsideClick = () => {},
 }) => {
 	const bottomSheetRef = useRef<HTMLDivElement>(null);
+	const indicatorRef = useRef<HTMLDivElement>(null);
 	const [originalHeight, setOriginalHeight] = useState(200);
 	const onBottomSheetClick = (event: MouseEvent<HTMLDivElement>) => {
 		event.stopPropagation();
@@ -31,7 +32,7 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 	const onTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
 		// event.stopPropagation();
 
-		if (bottomSheetRef.current) {
+		if (bottomSheetRef.current && indicatorRef.current) {
 			// console.log(bottomSheetRef);
 			// const sheetHeight = bottomSheetRef.current.clientHeight;
 			const newSheetHeight = document.documentElement.clientHeight - event.touches[0].clientY;
@@ -39,6 +40,7 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 			bottomSheetRef.current.style.transition = `height 70ms`;
 
 			bottomSheetRef.current.style.height = `${newSheetHeight}px`;
+			indicatorRef.current.style.width = `15%`;
 			// console.log(event.touches[0].clientY);
 		}
 	};
@@ -48,8 +50,9 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 
 		// TODO: Rewrite it for using touch cooridante instead of bottomSheet Height
 
-		if (bottomSheetRef.current) {
+		if (bottomSheetRef.current && indicatorRef.current) {
 			bottomSheetRef.current.style.transition = `height 350ms`;
+			indicatorRef.current.style.width = `10%`;
 
 			// console.log(bottomSheetRef);
 
@@ -122,7 +125,7 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 					onTouchEnd={onTouchEnd}
 				>
 					{/* {originalHeight} */}
-					<motion.div className={styles.indicator}></motion.div>
+					<div className={styles.indicator} ref={indicatorRef}></div>
 				</div>
 				{title && (
 					<Typography size="title" weight="title" className={styles.title}>
