@@ -1,6 +1,5 @@
 import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
-import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
 import { useGetAnilibAnime } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.ts";
 import { useGetAnilibEpisodes } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.api.ts";
@@ -32,11 +31,7 @@ interface IAnimeWatchSheetProps {
 }
 export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({ anime, isShow, onOutsideClick }) => {
 	const { data: anilibAnime } = useGetAnilibAnime({ name: anime.name });
-	const {
-		data: episodes,
-		isFetching: episodesLoading,
-		isSuccess,
-	} = useGetAnilibEpisodes({
+	const { data: episodes, isSuccess } = useGetAnilibEpisodes({
 		variables: { name: anime.name },
 	});
 	const [episodeElements, setEpisodeElements] = useState<ISelectOption[]>([]);
@@ -69,7 +64,6 @@ export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({ anime, isShow, onOu
 		);
 	};
 
-	if (episodesLoading) return <Loader />;
 	if (!episodes?.length) return null;
 
 	return (

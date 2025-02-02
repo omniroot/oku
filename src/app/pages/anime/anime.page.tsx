@@ -28,15 +28,12 @@ export const AnimePage = () => {
 
 	return (
 		<div className={styles.page}>
-			{isFetching && <Loader fullscreen />}
+			{!anime && isFetching && <Loader fullscreen />}
 			{anime && (
 				<>
 					<AnimeInfo anime={anime} />
 					<AnimeMoreInfo anime={anime} />
 					<AnimeWatchContainer anime={anime} />
-					{/* <AnimeRate anime={anime} /> */}
-
-					{/* {isHentai ? <HentaiWatch anime={anime} /> : <AnimeWatch anime={anime} />} */}
 					<AnimeScreenshots anime={anime} />
 					<AnimeFranchises anime={anime} />
 					<AnimeSimilar anime={anime} />

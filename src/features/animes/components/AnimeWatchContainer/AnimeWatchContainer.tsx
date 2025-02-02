@@ -73,24 +73,6 @@ export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 				isShow={isUserRateSheetOpen}
 				onOutsideClick={() => setIsUserRateSheetOpen(false)}
 			/>
-
-			{/* <AnimatePresence>
-				{userRateEditBottomSheetOpen && (
-					<UserRateEditBottomSheet anime={anime} onOutsideClick={onUserRateEditClick} />
-				)}
-				{watchBottomSheetOpen && (
-					<>
-						{isHentai ? (
-							<HentaiBottomSheet anime={anime} onOutsideClick={onWatchButtonClick} />
-						) : (
-							<BottomSheet onOutsideClick={onWatchButtonClick}>
-								<span>Animewatch player in refactoring...</span>
-							</BottomSheet>
-							// <WatchBottomSheet anime={anime} onOutsideClick={onWatchButtonClick} />
-						)}
-					</>
-				)}
-			</AnimatePresence> */}
 		</div>
 	);
 };
