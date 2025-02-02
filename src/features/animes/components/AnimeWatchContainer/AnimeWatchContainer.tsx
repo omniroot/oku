@@ -6,21 +6,21 @@ import { Divider } from "@ui/Divider/Divider.tsx";
 import clsx from "clsx";
 import { FC, useState } from "react";
 import styles from "./AnimeWatchContainer.module.css";
+import { HentaiWatchSheet } from "@features/animes/components/HentaiWatchSheet/HentaiWatchSheet.tsx";
+import { UserRateSheet } from "@features/animes/components/UserRateSheet/UserRateSheet.tsx";
 interface IWatchButtonProps {
 	anime: IAnime;
 }
 export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 	const [isWatchSheetOpen, setIsWatchSheetOpen] = useState(false);
-	// const [userRateEditBottomSheetOpen, setUserRateEditBottomSheetOpen] = useState(false);
-	// const isHentai = anime.genres.some((genre) => genre.name === "Hentai");
+	const [isUserRateSheetOpen, setIsUserRateSheetOpen] = useState(false);
+	const isHentai = anime.genres.some((genre) => genre.name === "Hentai");
 
-	const onUserRateAddClick = () => {
-		// setUserRateEditBottomSheetOpen((prev) => !prev);
+	const onUserRateClick = () => {
+		setIsUserRateSheetOpen(true);
 	};
 
-	const onUserRateEditClick = () => {
-		// setUserRateEditBottomSheetOpen((prev) => !prev);
-	};
+	console.log({ isHentai, isWatchSheetOpen });
 
 	return (
 		<div className={styles.anime_watch_container}>
@@ -34,7 +34,7 @@ export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 			{!anime.userRate ? (
 				<Button
 					variant="outline"
-					onClick={onUserRateAddClick}
+					onClick={onUserRateClick}
 					className={clsx(styles.user_rate_edit, { [styles.empty]: !anime.userRate })}
 				>
 					{/* <BookmarkEditIcon /> */}
@@ -44,7 +44,7 @@ export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 				<Button
 					className={clsx(styles.user_rate_edit, { [styles.empty]: !anime.userRate })}
 					variant="outline"
-					onClick={onUserRateEditClick}
+					onClick={onUserRateClick}
 				>
 					<div className={styles.user_rate_edit_content}>
 						{/* <BookmarkEditIcon /> */}
@@ -59,6 +59,19 @@ export const AnimeWatchContainer: FC<IWatchButtonProps> = ({ anime }) => {
 				isShow={isWatchSheetOpen}
 				onOutsideClick={() => setIsWatchSheetOpen(false)}
 				anime={anime}
+			/>
+			{isHentai && (
+				<HentaiWatchSheet
+					isShow={isWatchSheetOpen}
+					onOutsideClick={() => setIsWatchSheetOpen(false)}
+					anime={anime}
+				/>
+			)}
+
+			<UserRateSheet
+				anime={anime}
+				isShow={isUserRateSheetOpen}
+				onOutsideClick={() => setIsUserRateSheetOpen(false)}
 			/>
 
 			{/* <AnimatePresence>

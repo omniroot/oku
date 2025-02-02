@@ -7,7 +7,7 @@ import styles from "./BottomSheet.module.css";
 
 interface IBottomSheetProps {
 	children?: ReactNode;
-	isShow?: boolean;
+	isShow: boolean;
 	className?: string;
 	title?: string;
 	contentOrientation?: "vertical" | "horizontal";
@@ -17,7 +17,7 @@ interface IBottomSheetProps {
 export const BottomSheet: FC<IBottomSheetProps> = ({
 	children,
 	className,
-	isShow = false,
+	isShow,
 	title,
 	contentOrientation = "vertical",
 	onOutsideClick = () => {},
@@ -82,17 +82,6 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 			console.log("nothing");
 
 			bottomSheetRef.current.style.height = `${originalHeight + 2}px`;
-
-			// if (bottomSheetRef.current.clientHeight === originalHeight) {
-			// 	return;
-			// }
-
-			// const sheetHeight = bottomSheetRef.current.clientHeight;
-			// const newSheetHeight = document.documentElement.clientHeight - event.touches[0].clientY;
-			// console.log(newSheetHeight);
-
-			// bottomSheetRef.current.style.height = `${newSheetHeight}px`;
-			// console.log(event.touches[0].clientY);
 		}
 	};
 
@@ -114,7 +103,7 @@ export const BottomSheet: FC<IBottomSheetProps> = ({
 				initial={{ y: 250 }}
 				animate={{ y: 0 }}
 				exit={{ y: 250 }}
-				transition={{ duration: 0.2 }}
+				transition={{ duration: 0.3 }}
 				className={_class}
 				onClick={onBottomSheetClick}
 				ref={bottomSheetRef}
