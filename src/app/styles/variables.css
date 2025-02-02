@@ -37,4 +37,6 @@
 	--text-weight: var(--text-weight-body);
 
 	--blur: blur(8px);
+	--animation: width 200ms, height 200ms, transform 200ms, opacity 200ms, filter 200ms,
+		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms;
 }
