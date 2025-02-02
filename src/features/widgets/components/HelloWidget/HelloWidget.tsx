@@ -8,12 +8,13 @@ import { useState } from "react";
 import styles from "./HelloWidget.module.css";
 import { Switch } from "@components/ui/Switch/Switch.tsx";
 import { IWidgets, useWidgets } from "@features/widgets/stores/widgets.store.tsx";
+import { SettingsIcon } from "@/shared/assets/icons/SettingsIcon.tsx";
 
 export const HelloWidget = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { userId } = useAuth();
 	const { data: user } = useGetUser({ variables: { userId: Number(userId) } });
-	const { widgets, toggleWidget } = useWidgets();
+	const { widgets, getWidget, toggleWidget } = useWidgets();
 
 	return (
 		<div className={styles.hello_widget}>
@@ -24,13 +25,15 @@ export const HelloWidget = () => {
 				<CheckListIcon />
 			</Button>
 			<BottomSheet isShow={isOpen} onOutsideClick={() => setIsOpen(!isOpen)} title="Widgets list">
-				{Object.entries(widgets).map(([name, state]) => {
+				{Object.entries(widgets).map(([name, widget]) => {
+					const { state } = getWidget(name as IWidgets);
 					return (
 						<Switch
 							title={name}
 							state={state}
-							disabled={name === "hello"}
+							disabled={widget.necessary}
 							onChange={() => toggleWidget(name as IWidgets)}
+							rightSlot={widget.customizable && <SettingsIcon />}
 						/>
 					);
 				})}
