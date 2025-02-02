@@ -57,7 +57,7 @@ const widgetsStore = atomWithStorage<IWidgetsStore>("widgets", {
 		settings: [],
 	},
 	friends: {
-		state: true,
+		state: false,
 		settings: [],
 	},
 	test: {
