@@ -12,15 +12,15 @@
 		width: 160px;
 		aspect-ratio: 4 / 6;
 		background-color: transparent;
-		border: var(--border-ternary);
+		border: 2px solid transparent;
 		border-radius: 16px;
 
 		transition: var(--animation);
 
 		@media (hover: hover) {
 			&:hover {
-				border: var(--border-secondary);
-				background-color: var(--color-ternary);
+				border: 2px solid var(--color-secondary);
+				/* background-color: var(--color-ternary); */
 			}
 		}
 	}
@@ -50,14 +50,14 @@
 			display: -webkit-box;
 			-webkit-line-clamp: 7;
 			-webkit-box-orient: vertical;
-			border-radius: var(--radius);
+			border-radius: 16px;
 
 			transition: var(--animation);
-			border: var(--border-transparent);
+			border: 2px solid transparent;
 
 			&:hover {
-				background-color: var(--color-ternary);
-				border: var(--border-secondary);
+				background-color: var(--color-secondary);
+				border: 2px solid var(--color-secondary);
 			}
 		}
 	}
