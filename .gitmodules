@@ -1,0 +1,3 @@
+[submodule "src/shared/components/ui"]
+	path = src/shared/components/ui
+	url = https://github.com/omniroot/uikit.git
