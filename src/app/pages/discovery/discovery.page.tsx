@@ -5,23 +5,24 @@ import { Input } from "@components/ui/Input/Input.tsx";
 import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
+import { useSearch } from "@features/search/store/search.store.ts";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./discovery.page.module.css";
 
 export const DiscoveryPage = () => {
 	const { setTitle } = useHeader();
-	const [query, setQuery] = useState("");
+	const { search, setSearch } = useSearch();
 	const {
-		refetch: search,
+		refetch: fetchSearch,
 
 		isFetching,
 		isSuccess,
 		data: animes,
 	} = useGetAnimes({
-		variables: { search: query },
-		enabled: false,
+		variables: { search: search.query },
+		enabled: true,
 		placeholderData: (a) => {
 			return a;
 		},
@@ -32,7 +33,7 @@ export const DiscoveryPage = () => {
 	}, [setTitle]);
 
 	const onSearchSubmit = () => {
-		search();
+		fetchSearch();
 	};
 
 	return (
@@ -61,12 +62,13 @@ export const DiscoveryPage = () => {
 				</div>
 			</div>
 			<Input
-				value={query}
-				onChange={setQuery}
+				value={search.query}
+				onChange={(value) => setSearch({ query: value })}
 				placeholder="Search"
 				rightSlot={<SearchIcon />}
 				classNames={{ form: styles.search, input: styles.search }}
 				onSubmit={onSearchSubmit}
+				focused
 			/>
 			{isFetching && <Loader />}
 			{isSuccess && (

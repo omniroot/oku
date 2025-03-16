@@ -1,10 +1,16 @@
-import { create } from "zustand";
+import { useAtom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
-interface IUseSearchStore {
-	isOpened: boolean;
-	toggleOpen: () => void;
+interface ISearch {
+	query: string;
 }
-export const useSearchStore = create<IUseSearchStore>((set) => ({
-	isOpened: false,
-	toggleOpen: () => set((state) => ({ isOpened: !state.isOpened })),
-}));
+
+const searchStore = atomWithStorage<ISearch>("search", {
+	query: "",
+});
+
+export const useSearch = () => {
+	const [search, setSearch] = useAtom(searchStore);
+
+	return { search, setSearch };
+};
