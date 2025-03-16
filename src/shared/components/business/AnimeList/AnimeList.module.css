@@ -8,10 +8,8 @@
 }
 
 @media screen and (min-width: 600px) {
-	.user_rates {
-		.anime_list {
-			justify-content: flex-start;
-			gap: 12px;
-		}
+	.anime_list {
+		justify-content: flex-start;
+		gap: 14px;
 	}
 }
