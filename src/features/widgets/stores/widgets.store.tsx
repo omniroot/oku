@@ -70,7 +70,11 @@ export const useWidgets = () => {
 	const [store, setStore] = useAtom(widgetsStore);
 	const [mounted, setMounted] = useState(false);
 
+	// console.log({ store, mounted });
+
 	const getWidget = (name: IWidgets) => {
+		console.log("getWidget", store[name]);
+
 		return store[name];
 	};
 
