@@ -60,3 +60,35 @@
 		}
 	}
 }
+
+/* Context menu */
+.context_button {
+	width: 100%;
+	padding: 12px;
+}
+
+.mini_preview {
+	display: flex;
+	gap: 12px;
+
+	.mini_poster {
+		height: 200px;
+		border-radius: 12px;
+	}
+
+	.context_subinfo {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.mini_preview {
+		display: flex;
+
+		.mini_poster {
+			width: 20%;
+		}
+	}
+}
