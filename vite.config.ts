@@ -10,7 +10,7 @@ export const ReactCompilerConfig = {
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
-		MillionLint.vite({ enabled: true }),
+		// MillionLint.vite({ enabled: true }),
 		react({
 			// babel: {
 			// 		plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
