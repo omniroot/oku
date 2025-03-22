@@ -33,4 +33,10 @@
 	.search {
 		width: 80%;
 	}
+
+	.input_right_slot {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
 }

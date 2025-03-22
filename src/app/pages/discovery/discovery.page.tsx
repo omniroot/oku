@@ -1,3 +1,4 @@
+import { FilterIcon } from "@/shared/assets/icons/FilterIcon";
 import { SearchIcon } from "@/shared/assets/icons/SearchIcon.tsx";
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
@@ -10,10 +11,13 @@ import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import styles from "./discovery.page.module.css";
+import { useDebounce } from "@/shared/hooks/useDebounce.ts";
 
 export const DiscoveryPage = () => {
 	const { setTitle } = useHeader();
 	const { search, setSearch } = useSearch();
+	const debouncedSearch = useDebounce(search.query, 600);
+
 	const {
 		refetch: fetchSearch,
 
@@ -21,7 +25,7 @@ export const DiscoveryPage = () => {
 		isSuccess,
 		data: animes,
 	} = useGetAnimes({
-		variables: { search: search.query },
+		variables: { search: debouncedSearch },
 		enabled: true,
 		placeholderData: (a) => {
 			return a;
@@ -65,7 +69,12 @@ export const DiscoveryPage = () => {
 				value={search.query}
 				onChange={(value) => setSearch({ query: value })}
 				placeholder="Search"
-				rightSlot={<SearchIcon />}
+				rightSlot={
+					<div className={styles.input_right_slot}>
+						<FilterIcon />
+						<SearchIcon onClick={onSearchSubmit} />
+					</div>
+				}
 				classNames={{ form: styles.search, input: styles.search }}
 				onSubmit={onSearchSubmit}
 				focused
