@@ -66,12 +66,7 @@ export const DiscoveryPage = () => {
 				value={search.query}
 				onChange={(value) => setSearch((prev) => ({ ...prev, query: value }))}
 				placeholder="Search"
-				rightSlot={
-					<div className={styles.input_right_slot}>
-						<FilterIcon onClick={() => setIsFiltersOpen(true)} />
-						{/* <SearchIcon onClick={onSearchSubmit} /> */}
-					</div>
-				}
+				rightSlot={<FilterIcon onClick={() => setIsFiltersOpen(true)} />}
 				classNames={{ form: styles.search, input: styles.search }}
 				// onSubmit={onSearchSubmit}
 				focused
