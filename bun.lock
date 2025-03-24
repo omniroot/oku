@@ -13,6 +13,7 @@
         "clsx": "^2.1.1",
         "dayjs": "^1.11.13",
         "jotai": "^2.12.2",
+        "jotai-immer": "^0.4.1",
         "motion": "^11.17.0",
         "react": "^18.3.1",
         "react-compiler-runtime": "^19.0.0-beta-27714ef-20250124",
@@ -557,6 +558,8 @@
 
     "ignore": ["ignore@5.3.2", "", {}, "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="],
 
+    "immer": ["immer@10.1.1", "", {}, "sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw=="],
+
     "import-fresh": ["import-fresh@3.3.1", "", { "dependencies": { "parent-module": "^1.0.0", "resolve-from": "^4.0.0" } }, "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ=="],
 
     "import-lazy": ["import-lazy@2.1.0", "", {}, "sha512-m7ZEHgtw69qOGw+jwxXkHlrlIPdTGkyh66zXZ1ajZbxkDBNjSY/LGbmjc7h0s2ELsUDTAhFr55TrPSSqJGPG0A=="],
@@ -592,6 +595,8 @@
     "isomorphic-fetch": ["isomorphic-fetch@3.0.0", "", { "dependencies": { "node-fetch": "^2.6.1", "whatwg-fetch": "^3.4.1" } }, "sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA=="],
 
     "jotai": ["jotai@2.12.2", "", { "peerDependencies": { "@types/react": ">=17.0.0", "react": ">=17.0.0" }, "optionalPeers": ["@types/react", "react"] }, "sha512-oN8715y7MkjXlSrpyjlR887TOuc/NLZMs9gvgtfWH/JP47ChwO0lR2ijSwBvPMYyXRAPT+liIAhuBavluKGgtA=="],
+
+    "jotai-immer": ["jotai-immer@0.4.1", "", { "peerDependencies": { "immer": ">=9.0.0", "jotai": ">=2.0.0" } }, "sha512-nQTt1HBKie/5OJDck1qLpV1PeBA6bjJLAczEYAx70PD8R4Mbu7gtexfBUCzJh6W6ecsOfwHksAYAesVth6SN9A=="],
 
     "js-tokens": ["js-tokens@4.0.0", "", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
 
