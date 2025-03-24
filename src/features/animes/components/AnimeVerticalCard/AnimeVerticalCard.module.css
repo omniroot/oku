@@ -4,6 +4,15 @@
 	width: 48%;
 	text-decoration: none;
 	color: inherit;
+	padding: 4px;
+	border-radius: 12px;
+
+	transition: background-color 200ms, scale 200ms;
+
+	&:hover {
+		background-color: var(--color-primary-80);
+		scale: 1.05;
+	}
 
 	.poster {
 		width: 100%;

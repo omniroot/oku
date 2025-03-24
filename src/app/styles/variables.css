@@ -1,6 +1,7 @@
 :root {
 	/* Brand colors */
 	--color-primary: hsl(30, 88%, 64%);
+	--color-primary-80: hsla(30, 88%, 64%, 80%);
 	--color-ternary: hsl(27, 14%, 25%);
 	--color-secondary: hsl(27, 14%, 15%);
 	--color-background: hsl(36, 10%, 10%);
@@ -46,6 +47,7 @@
 @media (prefers-color-scheme: light) {
 	:root {
 		--color-primary: hsl(30, 88%, 64%);
+		--color-primary-80: hsla(30, 88%, 64%, 80%);
 		--color-ternary: hsl(27, 14%, 80%);
 		--color-secondary: hsl(27, 4%, 84%);
 		--color-background: hsl(36, 10%, 98%);
