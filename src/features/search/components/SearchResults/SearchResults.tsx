@@ -1,6 +1,5 @@
 import { useDebounce } from "@/shared/hooks/useDebounce.ts";
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
-import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useSearch } from "@features/search/store/search.store.ts";
@@ -26,12 +25,13 @@ export const SearchResults: FC<IProps> = ({}) => {
 		},
 	});
 
+	// separate for useGetAnimes, useGetUsers, and add check in bootm {isUsersSuccess && and etc }
+
 	return (
 		<>
 			<span>{search.type}</span>
-			{isFetching && <Loader />}
 			{isSuccess && (
-				<AnimeList>
+				<AnimeList loading={isFetching}>
 					{animes.map((anime) => (
 						<AnimeVerticalCard
 							key={anime.id}
