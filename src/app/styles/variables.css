@@ -42,3 +42,19 @@
 	--animation: width 200ms, height 200ms, transform 200ms, opacity 200ms, filter 200ms,
 		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms;
 }
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-primary: hsl(30, 88%, 64%);
+		--color-ternary: hsl(27, 14%, 80%);
+		--color-secondary: hsl(27, 4%, 84%);
+		--color-background: hsl(36, 10%, 98%);
+		--color-background-80: hsla(36, 10%, 98%, 80%);
+
+		--color-text: hsl(30, 100%, 10%);
+		--color-subtext: hsl(30, 30%, 25%);
+
+		--color-selection-text: hsl(30, 88%, 68%);
+		--color-selection-background: hsl(27, 14%, 20%);
+	}
+}
