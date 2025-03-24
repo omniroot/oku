@@ -1,14 +1,14 @@
 import { graphql } from "@/shared/api/graphql.ts";
 import { IAnime, IAnimeResponse } from "@features/animes/api/anime.interface.ts";
 import { GET_ANIMES } from "@features/animes/api/getAnimes/getAnimes.graphql.ts";
-import { AnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
+import { IAnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
 import { AxiosRequestConfig } from "axios";
 import { createInfiniteQuery, createQuery } from "react-query-kit";
 
 interface IGetAnimes {
 	animeId?: string;
 	search?: string;
-	status?: AnimeStatus;
+	status?: IAnimeStatus;
 	limit?: number;
 	config?: AxiosRequestConfig;
 	page?: number;

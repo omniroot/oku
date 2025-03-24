@@ -1,1 +1,1 @@
-export type AnimeStatus = "" | "ongoing" | "latest" | "anons" | "released";
+export type IAnimeStatus = "" | "ongoing" | "latest" | "anons" | "released";

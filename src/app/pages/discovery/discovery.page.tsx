@@ -1,43 +1,41 @@
 import { FilterIcon } from "@/shared/assets/icons/FilterIcon";
-import { SearchIcon } from "@/shared/assets/icons/SearchIcon.tsx";
-import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
+import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
 import { Input } from "@components/ui/Input/Input.tsx";
-import { Loader } from "@components/ui/Loader/Loader.tsx";
-import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
-import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
-import { useSearch } from "@features/search/store/search.store.ts";
+import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { SearchResults } from "@features/search/components/SearchResults/SearchResults.tsx";
+import { ISearchType, useSearch } from "@features/search/store/search.store.ts";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./discovery.page.module.css";
-import { useDebounce } from "@/shared/hooks/useDebounce.ts";
+
+const getSelectOption = (options: ISelectOption[], value: string) => {
+	return options.filter((opt) => opt.value === value)[0];
+};
 
 export const DiscoveryPage = () => {
 	const { setTitle } = useHeader();
+	const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+	const [searchTypeOptions] = useState([
+		{ label: "Anime", value: "anime" },
+		{ label: "User", value: "user" },
+	]);
+	const [searchType, setSearchType] = useState<ISelectOption | null>();
 	const { search, setSearch } = useSearch();
-	const debouncedSearch = useDebounce(search.query, 600);
-
-	const {
-		refetch: fetchSearch,
-
-		isFetching,
-		isSuccess,
-		data: animes,
-	} = useGetAnimes({
-		variables: { search: debouncedSearch },
-		enabled: true,
-		placeholderData: (a) => {
-			return a;
-		},
-	});
+	const defaultTypeSelectOption = getSelectOption(searchTypeOptions, search.type);
 
 	useEffect(() => {
 		setTitle("Discovery");
 	}, [setTitle]);
 
-	const onSearchSubmit = () => {
-		fetchSearch();
+	const onSearchTypeChange = (newOption: ISelectOption | null) => {
+		// setSearchType(newOption);
+		setSearch((draft) => {
+			draft.type = newOption?.value as ISearchType;
+		});
 	};
 
 	return (
@@ -67,35 +65,31 @@ export const DiscoveryPage = () => {
 			</div>
 			<Input
 				value={search.query}
-				onChange={(value) => setSearch({ query: value })}
+				onChange={(value) => setSearch((prev) => ({ ...prev, query: value }))}
 				placeholder="Search"
 				rightSlot={
 					<div className={styles.input_right_slot}>
-						<FilterIcon />
-						<SearchIcon onClick={onSearchSubmit} />
+						<FilterIcon onClick={() => setIsFiltersOpen(true)} />
+						{/* <SearchIcon onClick={onSearchSubmit} /> */}
 					</div>
 				}
 				classNames={{ form: styles.search, input: styles.search }}
-				onSubmit={onSearchSubmit}
+				// onSubmit={onSearchSubmit}
 				focused
 			/>
-			{isFetching && <Loader />}
-			{isSuccess && (
-				<AnimeList>
-					{animes.map((anime) => (
-						<AnimeVerticalCard
-							key={anime.id}
-							name={anime.name}
-							id={anime.id}
-							poster={anime.poster.originalUrl}
-							date={String(anime.releasedOn.year || anime.airedOn.year)}
-							episodes={anime.episodes}
-							userEpisodes={anime.userRate?.episodes}
-							kind={anime.kind}
-						/>
-					))}
-				</AnimeList>
-			)}
+			<SearchResults />
+
+			<BottomSheet isShow={isFiltersOpen} onOutsideClick={() => setIsFiltersOpen(false)}>
+				<div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+					<Typography>Type</Typography>
+					<Select
+						options={searchTypeOptions}
+						onChange={onSearchTypeChange}
+						defaultValue={defaultTypeSelectOption}
+						placeholder="Type"
+					/>
+				</div>
+			</BottomSheet>
 		</div>
 	);
 };
