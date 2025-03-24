@@ -13,7 +13,7 @@ export const SearchResults: FC<IProps> = ({}) => {
 	const { search } = useSearch();
 	const debouncedQuery = useDebounce(search.query, 800);
 	const {
-		refetch: fetchSearch,
+		// refetch: fetchSearch,
 
 		isFetching,
 		isSuccess,

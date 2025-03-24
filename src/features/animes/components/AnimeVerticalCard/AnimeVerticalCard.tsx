@@ -1,12 +1,11 @@
 import { Badge } from "@components/ui/Badge/Badge.tsx";
-import { Portal } from "@components/ui/Portal/Portal.tsx";
+import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
+import { Button } from "@components/ui/Button/Button.tsx";
+import { ImageView } from "@components/ui/ImageView/ImageView.tsx";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { FC, useState } from "react";
 import styles from "./AnimeVerticalCard.module.css";
-import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
-import { ImageView } from "@components/ui/ImageView/ImageView.tsx";
-import { Button } from "@components/ui/Button/Button.tsx";
 
 interface IAnimeVerticalCardProps {
 	id: string;
@@ -29,7 +28,6 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 	userEpisodes,
 	onClick = () => {},
 }) => {
-	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const onContextMenuClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

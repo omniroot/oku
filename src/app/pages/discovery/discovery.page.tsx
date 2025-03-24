@@ -23,7 +23,6 @@ export const DiscoveryPage = () => {
 		{ label: "Anime", value: "anime" },
 		{ label: "User", value: "user" },
 	]);
-	const [searchType, setSearchType] = useState<ISelectOption | null>();
 	const { search, setSearch } = useSearch();
 	const defaultTypeSelectOption = getSelectOption(searchTypeOptions, search.type);
 
