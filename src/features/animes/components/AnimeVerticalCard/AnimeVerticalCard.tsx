@@ -14,19 +14,23 @@ interface IAnimeVerticalCardProps {
 	date?: string;
 	kind?: string;
 	episodes?: number;
+	poster_full?: string;
 	userEpisodes?: number;
 	onClick?: () => void;
+	style?: React.CSSProperties;
 }
 
 export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 	id,
 	poster,
+	poster_full,
 	date,
 	kind,
 	name,
 	episodes,
 	userEpisodes,
 	onClick = () => {},
+	style,
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -47,9 +51,10 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 			params={{ animeId: String(id) }}
 			onClick={onClick}
 			onContextMenu={onContextMenuClick}
+			style={style}
 		>
 			{/* TODO: reweite to ImageView */}
-			<div className={styles.poster} style={{ backgroundImage: `url(${poster || "/404.png"})` }}>
+			<div className={styles.poster} style={{ backgroundImage: `url(${poster || ""})` }}>
 				<div className={styles.top}>
 					<Badge>{date}</Badge>
 					<Badge>{kind}</Badge>
@@ -64,7 +69,11 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 
 			<BottomSheet title="Context menu" isShow={isOpen} onOutsideClick={() => setIsOpen(false)}>
 				<div className={styles.mini_preview}>
-					<ImageView allowFullscreen src={poster || "404.png"} className={styles.mini_poster} />
+					<ImageView
+						allowFullscreen
+						src={poster_full || poster || ""}
+						className={styles.mini_poster}
+					/>
 					<div className={styles.context_subinfo}>
 						<Typography size="medium" weight="title">
 							{name}
