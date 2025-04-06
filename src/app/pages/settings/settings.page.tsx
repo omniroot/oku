@@ -34,12 +34,14 @@ export const SettingsPage = () => {
 					<Divider spacing />
 					<Button variant="primary">Primary Button</Button>
 					<Button variant="secondary">Secondary Button</Button>
+					<Button variant="tertiary">Tertiary Button</Button>
 					<Button variant="outline">Outline Button</Button>
 					<Button variant="outline" loading>
 						Outline Button
 					</Button>
 					<Button variant="gradient">Gradient Button</Button>
 					<Button variant="ghost">Ghost Button</Button>
+					<Button variant="delete">Delete Button</Button>
 				</div>
 			</HeadingSection>
 		</div>
