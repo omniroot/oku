@@ -6,15 +6,15 @@ html,
 body {
 	font-family: "Open Sans", sans-serif;
 	color: var(--color-text);
-	background-color: var(--color-background);
+	background-color: var(--surface);
 
 	scrollbar-width: thin;
 	scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 ::selection {
-	color: var(--color-selection-text);
-	background-color: var(--color-selection-background);
+	color: var(--on_surface);
+	background-color: var(--surface_variant);
 }
 
 #root {
