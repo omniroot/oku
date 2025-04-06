@@ -11,7 +11,12 @@ export const AnimeList: FC<IAnimeListProps> = ({ children, loading = false }) =>
 		return (
 			<div className={styles.anime_list}>
 				{items.map(() => (
-					<AnimeVerticalCard id="0" poster="" name="Loading" />
+					<AnimeVerticalCard
+						id="0"
+						poster=""
+						name="Loading"
+						style={{ background: "var(--color-secondary)" }}
+					/>
 				))}
 			</div>
 		);
