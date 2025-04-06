@@ -7,11 +7,12 @@
 	display: flex;
 	align-items: center;
 	padding: 8px;
-	border: 2px solid var(--color-secondary);
+	gap: 4px;
+	border: 2px solid var(--surface_container);
 	border-radius: 50px;
 	z-index: 100;
 
-	background-color: var(--color-background);
+	background-color: var(--surface);
 
 	.active_indicator {
 		position: fixed;
@@ -33,7 +34,7 @@
 
 		border-radius: 50px;
 		position: fixed;
-		background-color: var(--color-secondary);
+		background-color: var(--surface_container);
 		z-index: 1;
 		float: right;
 	}
@@ -60,7 +61,7 @@
 
 		&:not(.active):hover {
 			color: var(--color-primary);
-			background-color: var(--color-secondary);
+			background-color: var(--surface_container);
 		}
 
 		&.active {
