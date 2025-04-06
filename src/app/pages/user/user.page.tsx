@@ -21,14 +21,18 @@ export const UserPage = () => {
 		setIcon(<UserIcon />);
 	}, [setIcon, setTitle]);
 
-	if (!user) return null;
+	// if (!user) return null;
 
 	return (
 		<div className={styles.page} style={{ display: "flex", flexDirection: "column" }}>
-			<UserCard user={user} />
-			<Divider />
-			<UserOptions user={user} />
-			<Divider />
+			{user && (
+				<>
+					<UserCard user={user} />
+					<Divider />
+					<UserOptions user={user} />
+					<Divider />
+				</>
+			)}
 			<UserRates userId={userId} status={status || "watching"} />
 		</div>
 	);
