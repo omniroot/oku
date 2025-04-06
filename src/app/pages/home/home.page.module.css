@@ -3,3 +3,9 @@
 	flex-direction: column;
 	gap: 12px;
 }
+
+.block {
+	padding: 20px;
+	font-size: large;
+	border-radius: 32px;
+}
