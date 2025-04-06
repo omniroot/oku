@@ -1,0 +1,20 @@
+.search_user_card {
+	display: flex;
+	gap: 12px;
+	padding: 8px 4px;
+	text-decoration: none;
+	color: inherit;
+	border-radius: 12px;
+	transition: background-color 200ms;
+
+	&:hover {
+		background-color: var(--color-primary-80);
+	}
+
+	.avatar {
+		width: 54px;
+		height: 54px;
+
+		border-radius: 50%;
+	}
+}
