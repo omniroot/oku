@@ -7,6 +7,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/main.css";
+import { UIProvider } from "@components/ui/UIProvider/UIProvider.tsx";
 
 dayjs().locale("en");
 dayjs.extend(relativeTime);
@@ -27,7 +28,9 @@ const client = new QueryClient({
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<QueryClientProvider client={client}>
-			<RouterProvider router={router} />
+			<UIProvider>
+				<RouterProvider router={router} />
+			</UIProvider>
 		</QueryClientProvider>
 	</StrictMode>,
 );
