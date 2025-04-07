@@ -12,7 +12,7 @@ export const HomePage = () => {
 
 	const not = useCallback(() => {
 		addNotification({ message: `HI ${Math.random()}` });
-	}, []);
+	}, [addNotification]);
 
 	useEffect(() => {
 		setTitle("Home");

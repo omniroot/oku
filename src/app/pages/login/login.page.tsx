@@ -23,16 +23,14 @@ export const LoginPage = () => {
 		if (code && code?.length > 1) {
 			login(code);
 		}
-	}, []);
+	}, [code, login, setIcon, setTitle]);
 
 	return (
 		<div className={styles.login_page}>
 			{/* <ImageView src="/login_cat.png" className={styles.cat_image} /> */}
 			<div className={styles.login_card}>
 				<div className={styles.login_header}>
-					<Typography size="title" weight="title">
-						Login
-					</Typography>
+					<Typography variant="title">Login</Typography>
 					<Typography className={styles.login_about}>
 						To use the application, you need an account on shikimori.one
 					</Typography>

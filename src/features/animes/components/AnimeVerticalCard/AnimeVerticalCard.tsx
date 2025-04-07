@@ -64,7 +64,7 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 				</div>
 			</div>
 			<div className={styles.info}>
-				<Typography weight="title">{name}</Typography>
+				<Typography variant="title">{name}</Typography>
 			</div>
 
 			<BottomSheet title="Context menu" isShow={isOpen} onOutsideClick={() => setIsOpen(false)}>
@@ -75,9 +75,7 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 						className={styles.mini_poster}
 					/>
 					<div className={styles.context_subinfo}>
-						<Typography size="medium" weight="title">
-							{name}
-						</Typography>
+						<Typography variant="title">{name}</Typography>
 						<div style={{ display: "inline-flex", gap: "8px" }}>
 							<Badge>{kind}</Badge>
 							<Badge>{date}</Badge>

@@ -18,9 +18,7 @@ export const HelloWidget = () => {
 
 	return (
 		<div className={styles.hello_widget}>
-			<Typography size="medium" weight="title">
-				Hello, {user?.nickname || "guest"}!
-			</Typography>
+			<Typography variant="title">Hello, {user?.nickname || "guest"}!</Typography>
 			<Button variant="background" circle onClick={() => setIsOpen(!isOpen)}>
 				<CheckListIcon />
 			</Button>

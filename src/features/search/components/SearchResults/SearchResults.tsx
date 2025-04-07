@@ -9,14 +9,14 @@ import { FC } from "react";
 import styles from "./SearchResults.module.css";
 
 interface IProps {
-	// type?: "anime" | "user";
+	type?: "anime" | "user";
 }
-export const SearchResults: FC<IProps> = ({}) => {
+export const SearchResults: FC<IProps> = () => {
 	const { search } = useSearch();
 	const debouncedQuery = useDebounce(search.query, 800);
 	const {
 		isFetching: isAnimesFetching,
-		isSuccess: isAnimesSuccess,
+		// isSuccess: isAnimesSuccess,
 		data: animes,
 	} = useGetAnimes({
 		variables: { search: debouncedQuery, status: search.status },
@@ -27,8 +27,8 @@ export const SearchResults: FC<IProps> = ({}) => {
 	});
 
 	const {
-		isFetching: isUsersFetching,
-		isSuccess: isUsersSuccess,
+		// isFetching: isUsersFetching,
+		// isSuccess: isUsersSuccess,
 		data: users,
 	} = useGetUsers({
 		variables: { search: debouncedQuery },
