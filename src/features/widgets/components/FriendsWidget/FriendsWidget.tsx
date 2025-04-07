@@ -21,9 +21,7 @@ export const FriendsWidget = () => {
 						<ImageView src={friend.image.x160} className={styles.avatar} />
 						<div className={styles.info}>
 							<div className={styles.line}>
-								<Typography size="base" weight="title">
-									{friend.nickname}
-								</Typography>
+								<Typography variant="title">{friend.nickname}</Typography>
 								<Badge className={styles.badge}>{dayjs(friend.last_online_at).fromNow()}</Badge>
 							</div>
 							{/* <div className={styles.line}></div> */}

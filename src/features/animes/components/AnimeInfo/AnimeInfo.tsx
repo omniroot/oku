@@ -28,9 +28,7 @@ export const AnimeInfo: FC<IAnimeInfoProps> = ({ anime }) => {
 				loading="eager"
 			/>
 			<div className={styles.subinfo}>
-				<Typography weight="title" size="title">
-					{anime.name}
-				</Typography>
+				<Typography variant="title">{anime.name}</Typography>
 				<Typography>{anime.russian}</Typography>
 				{anime?.description?.length > 0 && (
 					<>

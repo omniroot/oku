@@ -17,9 +17,7 @@ export const SearchUserCard: FC<IProps> = ({ user }) => {
 		<Link to="/users/$userId" params={{ userId: user.id }} className={styles.search_user_card}>
 			<ImageView src={user.avatarUrl || "404.png"} className={styles.avatar} />
 			<div>
-				<Typography size="medium" weight="title">
-					{user.nickname}
-				</Typography>
+				<Typography variant="title">{user.nickname}</Typography>
 				<Badge>{lastOnline}</Badge>
 			</div>
 		</Link>

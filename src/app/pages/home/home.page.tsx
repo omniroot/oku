@@ -1,9 +1,8 @@
+import { Button } from "@components/ui/Button/Button.tsx";
+import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useCallback, useEffect } from "react";
 import styles from "./home.page.module.css";
-import { WidgetsList } from "@features/widgets/components/WidgetsList/WidgetsList.tsx";
-import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
-import { Button } from "@components/ui/Button/Button.tsx";
 
 export const HomePage = () => {
 	const { setTitle } = useHeader();
@@ -11,7 +10,7 @@ export const HomePage = () => {
 
 	const not = useCallback(() => {
 		addNotification({ message: `HI ${Math.random()}` });
-	}, []);
+	}, [addNotification]);
 
 	useEffect(() => {
 		setTitle("Home");
