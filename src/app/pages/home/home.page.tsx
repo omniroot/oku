@@ -1,10 +1,10 @@
+import { Accordion } from "@components/ui/Accordion/Accordion.tsx";
+import { Button } from "@components/ui/Button/Button.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useCallback, useEffect } from "react";
 import styles from "./home.page.module.css";
-import { WidgetsList } from "@features/widgets/components/WidgetsList/WidgetsList.tsx";
-import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
-import { Button } from "@components/ui/Button/Button.tsx";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
 
 export const HomePage = () => {
 	const { setTitle } = useHeader();
@@ -21,6 +21,23 @@ export const HomePage = () => {
 	return (
 		<div className={styles.page}>
 			{/* <WidgetsList /> */}
+			<Accordion title="Accrodion">
+				<Typography variant="label" size="large">
+					label size large
+				</Typography>
+				<Typography variant="label" size="medium">
+					label size medium
+				</Typography>
+				<Typography variant="label" size="small">
+					label size small
+				</Typography>
+				<div className={styles.block} style={{ backgroundColor: "var(--tertiary)" }}>
+					<Typography variant="headline" color="tertiary">
+						Typography
+					</Typography>
+				</div>
+			</Accordion>
+
 			<Button onClick={not}>Add notificaition</Button>
 
 			<div className={styles.block} style={{ backgroundColor: "var(--surface_container_lowest)" }}>
@@ -54,21 +71,6 @@ export const HomePage = () => {
 			<div className={styles.block} style={{ backgroundColor: "var(--error_container)" }}>
 				<Typography color="error_container">hello world</Typography>
 			</div>
-
-			<div className={styles.block} style={{ backgroundColor: "var(--tertiary)" }}>
-				<Typography variant="headline" color="tertiary">
-					Typography
-				</Typography>
-			</div>
-			<Typography variant="label" size="large">
-				label size large
-			</Typography>
-			<Typography variant="label" size="medium">
-				label size medium
-			</Typography>
-			<Typography variant="label" size="small">
-				label size small
-			</Typography>
 		</div>
 	);
 };
