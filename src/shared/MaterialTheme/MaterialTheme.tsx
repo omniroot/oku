@@ -54,7 +54,7 @@ export const MaterialThemeProvider = ({
 		const convertedName = name.toLocaleLowerCase().replaceAll("_", "-");
 		// console.log({ convertedName });
 
-		return `var(--md-sys-color-${type === "color" ? "on-" : ""}${convertedName})`;
+		return `var(--md-${type === "color" ? "on-" : ""}${convertedName})`;
 	};
 
 	return (
