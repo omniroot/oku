@@ -8,11 +8,10 @@
 	align-items: center;
 	padding: 8px;
 	gap: 4px;
-	border: 2px solid var(--surface_container);
+	background-color: var(--md-surface);
+	border: 2px solid var(--md-surface-container);
 	border-radius: 50px;
 	z-index: 100;
-
-	background-color: var(--surface);
 
 	.active_indicator {
 		position: fixed;
@@ -20,7 +19,7 @@
 		width: 50px;
 		height: 50px;
 		padding: 15px;
-		background-color: var(--color-primary);
+		background-color: var(--md-primary);
 		border-radius: 50px;
 		transition: left 250ms;
 		z-index: 2;
@@ -34,7 +33,7 @@
 
 		border-radius: 50px;
 		position: fixed;
-		background-color: var(--surface_container);
+		background-color: var(--md-surface-container);
 		z-index: 1;
 		float: right;
 	}
@@ -55,17 +54,18 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50px;
+		color: var(--md-on-surface);
 		transition: var(--animation);
 
 		z-index: 3;
 
 		&:not(.active):hover {
-			color: var(--color-primary);
-			background-color: var(--surface_container);
+			color: var(--md-on-surface);
+			background-color: var(--md-surface-container);
 		}
 
 		&.active {
-			color: var(--color-background);
+			color: var(--md-on-primary);
 		}
 	}
 }

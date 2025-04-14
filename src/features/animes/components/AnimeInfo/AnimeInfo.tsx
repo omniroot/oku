@@ -28,8 +28,12 @@ export const AnimeInfo: FC<IAnimeInfoProps> = ({ anime }) => {
 				loading="eager"
 			/>
 			<div className={styles.subinfo}>
-				<Typography variant="title">{anime.name}</Typography>
-				<Typography>{anime.russian}</Typography>
+				<Typography variant="title" size="large">
+					{anime.name}
+				</Typography>
+				<Typography variant="body" size="large">
+					{anime.russian}
+				</Typography>
 				{anime?.description?.length > 0 && (
 					<>
 						<Divider orientation="horizontal" />

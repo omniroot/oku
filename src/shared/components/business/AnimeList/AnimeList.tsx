@@ -15,7 +15,7 @@ export const AnimeList: FC<IAnimeListProps> = ({ children, loading = false }) =>
 						id="0"
 						poster=""
 						name="Loading"
-						style={{ background: "var(--color-secondary)" }}
+						style={{ background: "var(--md-surface-container)" }}
 					/>
 				))}
 			</div>
