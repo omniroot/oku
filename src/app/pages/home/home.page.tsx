@@ -36,9 +36,15 @@ export const HomePage = () => {
 						Typography
 					</Typography>
 				</div>
+				{/* <div className={styles.block} style={{ backgroundColor: getMd("primary") }}>
+					<span style={{ color: getMd("on-primary") }}>new</span>
+				</div> */}
 			</Accordion>
 
 			<Button onClick={not}>Add notificaition</Button>
+			<Button onClick={not} style={{ backgroundColor: "var(--color-primary)" }}>
+				Add notificaition
+			</Button>
 
 			<div className={styles.block} style={{ backgroundColor: "var(--surface_container_lowest)" }}>
 				surface_container_lowest
