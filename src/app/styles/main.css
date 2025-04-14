@@ -6,16 +6,16 @@
 html,
 body {
 	font-family: "Roboto", sans-serif;
-	color: var(--color-text);
-	background-color: var(--surface);
+	color: var(--md-on-surface);
+	background-color: var(--md-surface);
 
 	scrollbar-width: thin;
-	scrollbar-color: var(--color-primary) var(--color-background);
+	scrollbar-color: var(--md-primary) var(--md-surface);
 }
 
 ::selection {
-	color: var(--on_surface);
-	background-color: var(--surface_variant);
+	color: var(--md-on-surface);
+	background-color: var(--md-surface-variant);
 }
 
 #root {
@@ -31,5 +31,5 @@ body {
 }
 
 a {
-	color: var(--color-primary);
+	color: var(--md-primary);
 }
