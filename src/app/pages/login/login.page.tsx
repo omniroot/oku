@@ -17,13 +17,17 @@ export const LoginPage = () => {
 
 		window.open(CONSTS.OAUTH_URL, "_self");
 	};
+
 	useEffect(() => {
 		setTitle("Login");
 		setIcon(<LoginIcon />);
+	}, [setIcon, setTitle]);
+
+	useEffect(() => {
 		if (code && code?.length > 1) {
 			login(code);
 		}
-	}, [code, login, setIcon, setTitle]);
+	}, [code, login]);
 
 	return (
 		<div className={styles.login_page}>
