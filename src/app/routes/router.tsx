@@ -14,7 +14,6 @@ import { userAchievementsRoute } from "@/app/routes/users/achievements.route.tsx
 import { userFavoritesRoute } from "@/app/routes/users/favorites.route.tsx";
 import { userFriendsRoute } from "@/app/routes/users/friends.route.tsx";
 import { userRoute } from "@/app/routes/users/user.route";
-import { PageTransition } from "@components/ui/PageTransition/PageTransition.tsx";
 import { HomePage } from "@pages/home/home.page.tsx";
 import { NotFoundPage } from "@pages/notfound/notfound.page.tsx";
 import { createRootRoute, createRoute, createRouter } from "@tanstack/react-router";
@@ -27,11 +26,7 @@ export const rootRoute = createRootRoute({
 const indexRoute = createRoute({
 	path: "/",
 	getParentRoute: () => rootRoute,
-	component: () => (
-		<PageTransition>
-			<HomePage />
-		</PageTransition>
-	),
+	component: () => <HomePage />,
 });
 
 const routeTree = rootRoute.addChildren([

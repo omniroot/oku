@@ -1,5 +1,4 @@
 import { rootRoute } from "@/app/routes/router";
-import { PageTransition } from "@components/ui/PageTransition/PageTransition.tsx";
 import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { UserPage } from "@pages/user/user.page.tsx";
 import { createRoute } from "@tanstack/react-router";
@@ -16,9 +15,5 @@ export const userRoute = createRoute({
 			status: (search?.status as IUserRateStatus) || "watching",
 		};
 	},
-	component: () => (
-		<PageTransition>
-			<UserPage />
-		</PageTransition>
-	),
+	component: () => <UserPage />,
 });

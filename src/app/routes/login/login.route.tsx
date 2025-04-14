@@ -1,5 +1,4 @@
 import { rootRoute } from "@/app/routes/router";
-import { PageTransition } from "@components/ui/PageTransition/PageTransition.tsx";
 import { LoginPage } from "@pages/login/login.page.tsx";
 import { createRoute } from "@tanstack/react-router";
 
@@ -15,9 +14,5 @@ export const loginRoute = createRoute({
 			code: search?.code as string,
 		};
 	},
-	component: () => (
-		<PageTransition>
-			<LoginPage />
-		</PageTransition>
-	),
+	component: () => <LoginPage />,
 });
