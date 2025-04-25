@@ -1,37 +1,49 @@
-import { DiscoveryIcon } from "@/shared/assets/icons/DiscoveryIcon.tsx";
 import { HomeIcon } from "@/shared/assets/icons/HomeIcon.tsx";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { LoginIcon } from "@/shared/assets/icons/LoginIcon.tsx";
+import { SearchIcon } from "@/shared/assets/icons/SearchIcon.tsx";
+import { UserIcon } from "@/shared/assets/icons/UserIcon.tsx";
+import { useAuth } from "@features/auth/hooks/useAuth.tsx";
 import { Link } from "@tanstack/react-router";
 import styles from "./BottomNavigation.module.css";
-import { UserIcon } from "@/shared/assets/icons/UserIcon.tsx";
 
 export const BottomNavigation = () => {
+	const { userId, isAuthorized } = useAuth();
+
 	return (
 		<div className={styles.bottom_navigation}>
-			<div className={styles.left}>
-				<Link to="/" className={styles.item} activeProps={{ className: styles.active }}>
-					<HomeIcon />
-					<Typography>Home</Typography>
-				</Link>
-			</div>
-
-			<div className={styles.center}>
-				<Link to="/discovery" className={styles.item} activeProps={{ className: styles.active }}>
-					<DiscoveryIcon />
-					<Typography>Discovery</Typography>
-				</Link>
-			</div>
-			<div className={styles.right}>
+			<Link
+				to="/"
+				className={styles.bottom_navigation_item}
+				activeProps={{ className: styles.active, id: "active_bn" }}
+			>
+				<HomeIcon width={20} height={20} />
+			</Link>
+			<Link
+				to="/discovery"
+				className={styles.bottom_navigation_item}
+				activeProps={{ className: styles.active, id: "active_bn" }}
+			>
+				{/* <DiscoveryIcon width={20} height={20} /> */}
+				<SearchIcon width={20} />
+			</Link>
+			{isAuthorized ? (
 				<Link
 					to="/users/$userId"
-					params={{ userId: "1026254" }}
-					className={styles.item}
-					activeProps={{ className: styles.active }}
+					params={{ userId: String(userId) }}
+					className={styles.bottom_navigation_item}
+					activeProps={{ className: styles.active, id: "active_bn" }}
 				>
-					<UserIcon />
-					<Typography>omniroot</Typography>
+					<UserIcon width={20} height={20} />
 				</Link>
-			</div>
+			) : (
+				<Link
+					to="/login"
+					className={styles.bottom_navigation_item}
+					activeProps={{ className: styles.active, id: "active_bn" }}
+				>
+					<LoginIcon width={20} height={20} />
+				</Link>
+			)}
 		</div>
 	);
 };
