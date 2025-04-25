@@ -1,8 +1,10 @@
+import { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
 import { atom, useAtom } from "jotai";
 
 interface INotification {
 	id: string;
 	message: string;
+	color?: IUIColor;
 }
 
 type INotificationWithoutId = Omit<INotification, "id">;
@@ -16,7 +18,7 @@ export const useNotifications = () => {
 		setNotifications((prev) => [...prev, { ...notification, id: crypto.randomUUID() }]);
 	};
 
-	const deleteNotification = (id: String) => {
+	const deleteNotification = (id: string) => {
 		setNotifications((prev) => prev.filter((item) => item.id !== id));
 	};
 

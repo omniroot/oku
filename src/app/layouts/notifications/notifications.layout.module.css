@@ -20,9 +20,9 @@
 		display: flex;
 		align-items: center;
 		gap: 12px;
-
-		background-color: var(--color-background);
-		border: 2px solid var(--color-secondary);
+		color: var(--md-on-surface);
+		background-color: var(--md-surface);
+		border: 2px solid var(--md-surface-container);
 		border-radius: 12px;
 		padding: 8px;
 
@@ -32,7 +32,7 @@
 			display: flex;
 			padding: 4px;
 
-			color: var(--color-primary);
+			/* color: var(--color-primary); */
 			margin-left: auto;
 		}
 	}
