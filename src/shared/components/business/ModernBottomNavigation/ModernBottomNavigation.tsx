@@ -23,6 +23,16 @@ export const ModernBottomNavigation = () => {
 	// TODO: Delete one of animation element
 
 	useEffect(() => {
+		console.log(
+			"num",
+			activeIndicatorRef.current,
+			activeIndicatorStartRef.current,
+			activeIndicatorEndRef.current,
+			bottomNavigationRef.current,
+			activeIndicatorStartRef,
+			activeIndicatorEndRef,
+		);
+
 		if (
 			activeIndicatorRef.current &&
 			activeIndicatorStartRef.current &&
@@ -59,6 +69,8 @@ export const ModernBottomNavigation = () => {
 				activeItemLeftOffset,
 				activeItemRightOffset,
 			});
+
+			console.log(123);
 
 			const direction =
 				activeItem.offsetLeft > activeIndicatorRef.current.offsetLeft ? "right" : "left";
