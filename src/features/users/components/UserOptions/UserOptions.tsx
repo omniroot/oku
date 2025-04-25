@@ -19,7 +19,9 @@ export const UserOptions: FC<IUserOptionsProps> = ({ user }) => {
 				params={{ userId: String(user.id) }}
 			>
 				<UsersIcon />
-				<Typography size="medium">friends</Typography>
+				<Typography variant="body" size="large">
+					friends
+				</Typography>
 			</Link>
 			<Link
 				className={styles.option}
@@ -27,7 +29,9 @@ export const UserOptions: FC<IUserOptionsProps> = ({ user }) => {
 				params={{ userId: String(user.id) }}
 			>
 				<HeartIcon />
-				<Typography size="medium">favorites</Typography>
+				<Typography variant="body" size="large">
+					favorites
+				</Typography>
 			</Link>
 			<Link
 				className={styles.option}
@@ -35,7 +39,9 @@ export const UserOptions: FC<IUserOptionsProps> = ({ user }) => {
 				params={{ userId: String(user.id) }}
 			>
 				<CupIcon />
-				<Typography size="medium">achievements</Typography>
+				<Typography variant="body" size="large">
+					achievements
+				</Typography>
 			</Link>
 		</div>
 	);
