@@ -13,13 +13,18 @@ import { SettingsIcon } from "@/shared/assets/icons/SettingsIcon.tsx";
 export const HelloWidget = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { userId } = useAuth();
-	const { data: user } = useGetUser({ variables: { userId: Number(userId) } });
+	const { data: user } = useGetUser({ variables: { userId: Number(userId) || 9999999999999 } });
 	const { widgets, getWidget, toggleWidget } = useWidgets();
 
 	return (
 		<div className={styles.hello_widget}>
-			<Typography variant="title">Hello, {user?.nickname || "guest"}!</Typography>
-			<Button variant="background" circle onClick={() => setIsOpen(!isOpen)}>
+			<div className={styles.shape}>
+				<Typography variant="title" weight="bold" color="tertiary">
+					{user !== undefined ? user.nickname : "Not authorized"}!
+				</Typography>
+			</div>
+
+			<Button variant="primary" circle onClick={() => setIsOpen(!isOpen)}>
 				<CheckListIcon />
 			</Button>
 			<BottomSheet isShow={isOpen} onOutsideClick={() => setIsOpen(!isOpen)} title="Widgets list">

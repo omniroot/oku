@@ -5,10 +5,18 @@
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 8px;
+	padding: 6px;
 	border-radius: 12px;
-	color: var(--color-background);
-	background-color: var(--color-primary);
+	/* color: var(--md-on-primary); */
+	background-color: var(--md-secondary-container);
+
+	.shape {
+		border-radius: 21px;
+		border-top-left-radius: 12px;
+		border-bottom-left-radius: 12px;
+		background-color: var(--md-tertiary);
+		padding: 12px 18px;
+	}
 
 	.settings_button {
 		padding: 0;
