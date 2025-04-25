@@ -18,7 +18,9 @@ export const UserCard: FC<IUserCardProps> = ({ user }) => {
 			<img src={user.image.x160} className={styles.avatar} />
 			<div className={styles.info}>
 				<div className={styles.line}>
-					<Typography variant="title">{user.nickname}</Typography>
+					<Typography variant="title" size="large" weight="bold">
+						{user.nickname}
+					</Typography>
 					<Tooltip title={lastOnline}>
 						<Badge>{userOnline}</Badge>
 					</Tooltip>
