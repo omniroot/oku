@@ -1,12 +1,12 @@
 import { useDebounce } from "@/shared/hooks/useDebounce.ts";
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
+import { ListView } from "@components/ui/ListView/ListView.tsx";
 import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useSearch } from "@features/search/store/search.store.ts";
 import { useGetUsers } from "@features/users/api/getUsers/getUsers.api.ts";
-import { SearchUserCard } from "@features/search/components/SearchUserCard/SearchUserCard";
+import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
 import { FC } from "react";
-import styles from "./SearchResults.module.css";
 
 interface IProps {
 	type?: "anime" | "user";
@@ -61,11 +61,17 @@ export const SearchResults: FC<IProps> = () => {
 			)}
 
 			{search.type === "user" && (
-				<div className={styles.user_list}>
+				<ListView>
 					{users?.map((user) => (
-						<SearchUserCard user={user} />
+						<UserItem
+							id={String(user.id)}
+							title={user.nickname}
+							avatar={user.avatarUrl}
+							lastOnline={user.lastOnlineAt}
+						/>
+						// <SearchUserCard user={user} />
 					))}
-				</div>
+				</ListView>
 			)}
 		</>
 	);
