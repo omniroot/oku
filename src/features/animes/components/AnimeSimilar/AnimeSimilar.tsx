@@ -25,7 +25,7 @@ export const AnimeSimilar: FC<IAnimeSimilarProps> = ({ anime }) => {
 		<HeadingSection
 			title="Similars"
 			actionsSlot={
-				<Button variant="secondary" asLink>
+				<Button variant="ghost" asLink>
 					{/* <Typography weight="body">More</Typography> */}
 					<Link from="/animes/$animeId" to="similars" params={{ animeId: String(anime.id) }}>
 						more

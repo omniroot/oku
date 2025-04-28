@@ -18,7 +18,7 @@ export const AnimeScreenshots: FC<IAnimeScreenshotsProps> = ({ anime }) => {
 		<HeadingSection
 			title="Screenshots"
 			actionsSlot={
-				<Button variant="secondary" asLink>
+				<Button variant="ghost" asLink>
 					<Link from="/animes/$animeId" to="screenshots">
 						more
 						<RightArrowIcon />
