@@ -157,73 +157,9 @@ export const SettingsPage = () => {
 				<Button onClick={not} style={{ backgroundColor: "var(--color-primary)" }}>
 					Add notificaition
 				</Button>
-
-				<div
-					className={styles.block}
-					style={{ backgroundColor: "var(--surface_container_lowest)" }}
-				>
-					surface_container_lowest
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--surface)" }}>
-					<Typography color="surface">surface</Typography>
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--surface_container_low)" }}>
-					<Typography color="surface">surface_container_low</Typography>
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--surface_container)" }}>
-					surface_container
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--surface_container_high)" }}>
-					surface_container_high
-				</div>
-				<div
-					className={styles.block}
-					style={{ backgroundColor: "var(--surface_container_highest)" }}
-				>
-					surface_container_highest
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--secondary)" }}>
-					<Typography color="secondary">hello world</Typography>
-				</div>
-
-				<div className={styles.block} style={{ backgroundColor: "var(--tertiary)" }}>
-					<Typography color="tertiary">hello world</Typography>
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--error)" }}>
-					<Typography color="error">hello world</Typography>
-				</div>
-				<div className={styles.block} style={{ backgroundColor: "var(--error_container)" }}>
-					<Typography color="error_container">hello world</Typography>
-				</div>
 			</HeadingSection>
 		</div>
 	);
-	// 	const { theme, changeTheme } = useSettings();
-	// 	const onToggleHeaderClick = () => {
-	// 		// toggleShowHeader();
-	// 	};
-	// 	return (
-	// 		<div className={styles.settings_page}>
-	// 			<span className={styles.settings_heading}>Settings</span>
-	// 			<Button onClick={onToggleHeaderClick}>Toggle Header</Button>
-	// 			<Select
-	// 				defaultValue={{ value: theme, label: theme }}
-	// 				onActiveChange={(newTheme) => changeTheme(newTheme as typeof theme)}
-	// 				positionX="right"
-	// 			>
-	// 				<SelectContent>
-	// 					{THEMES.map((theme) => {
-	// 						return (
-	// 							<SelectItem key={theme} value={theme}>
-	// 								{theme}
-	// 							</SelectItem>
-	// 						);
-	// 					})}
-	// 				</SelectContent>
-	// 			</Select>
-
-	// 		</div>
-	// 	);
 };
 
 export const Route = createLazyRoute("/settings")({
