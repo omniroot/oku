@@ -4,7 +4,7 @@ import {
 } from "@/shared/MaterialTheme/MaterialTheme.utils.ts";
 import { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
 import { useState, useEffect, useContext, createContext } from "react";
-
+import "./MaterialTheme.module.css";
 interface IProps {
 	defaultColor?: string;
 	type?: "dark" | "light";
