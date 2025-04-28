@@ -1,19 +1,18 @@
+import { TrashIcon } from "@/shared/assets/icons/TrashIcon.tsx";
+import { Dialog } from "@components/ui/Dialog/Dialog.tsx";
+import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
 import { IAnime } from "@features/animes/api/anime.interface.ts";
+import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
+import { useAuth } from "@features/auth/hooks/useAuth.tsx";
+import { useAddUserRate } from "@features/userRates/api/addUserRate/addUserRate.api.ts";
+import { useDeleteUserRate } from "@features/userRates/api/deleteUserRate/deleteUserRate.api.ts";
+import { useUpdateUserRate } from "@features/userRates/api/updateUserRate/updateUserRate.api.ts";
 import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import { useQueryClient } from "@tanstack/react-query";
 import { BottomSheet } from "@ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@ui/Button/Button.tsx";
 import { FC, useState } from "react";
 import styles from "./UserRateSheet.module.css";
-import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
-import { TrashIcon } from "@/shared/assets/icons/TrashIcon.tsx";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
-import { useUpdateUserRate } from "@features/userRates/api/updateUserRate/updateUserRate.api.ts";
-import { useQueryClient } from "@tanstack/react-query";
-import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
-import { useAddUserRate } from "@features/userRates/api/addUserRate/addUserRate.api.ts";
-import { useAuth } from "@features/auth/hooks/useAuth.tsx";
-import { Dialog } from "@components/ui/Dialog/Dialog.tsx";
-import { useDeleteUserRate } from "@features/userRates/api/deleteUserRate/deleteUserRate.api.ts";
 
 const getEpisodesSelectElements = (maxEpisodes: number) => {
 	const elements = Array.from({ length: maxEpisodes }, (_, i) => ({
@@ -140,11 +139,11 @@ export const UserRateSheet: FC<IUserRateEditBottomSheetProps> = ({
 							variant="outline"
 						>
 							<TrashIcon />
-							<Typography>Delete</Typography>
+							Delete
 						</Button>
 					)}
 					<Button variant="primary" className={styles.save_button} onClick={onSaveButtonClick}>
-						<Typography>{isExistInUserRate ? "Save" : "Add"}</Typography>
+						{isExistInUserRate ? "Save" : "Add"}
 					</Button>
 				</div>
 			</div>
