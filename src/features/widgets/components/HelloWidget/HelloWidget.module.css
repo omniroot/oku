@@ -8,7 +8,7 @@
 	padding: 6px;
 	border-radius: 12px;
 	/* color: var(--md-on-primary); */
-	background-color: var(--md-secondary-container);
+	background-color: var(--md-surface-container);
 
 	.shape {
 		border-radius: 21px;
