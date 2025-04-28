@@ -32,22 +32,6 @@ export const SettingsPage = () => {
 		<div className={styles.page}>
 			<HeadingSection title="Preview theme">
 				<div className={styles.preview_colors_content}>
-					<div className={styles.preview_colors}>
-						<section>
-							<span>Background:</span>
-							<Button circle className={styles.preview_primary}></Button>
-							<Button circle className={styles.preview_secondary}></Button>
-							<Button circle className={styles.preview_ternary}></Button>
-							<Divider orientation="vertical" />
-						</section>
-						<section>
-							<span>Text:</span>
-							<Button circle className={styles.preview_text}></Button>
-							<Button circle className={styles.preview_subtext}></Button>
-							<Button circle className={styles.preview_alttext}></Button>
-						</section>
-					</div>
-					<Divider spacing />
 					<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
 					<Accordion title="Colors">
 						<Box color="primary" backgroundColor="primary">
