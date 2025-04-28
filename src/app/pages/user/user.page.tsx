@@ -28,11 +28,11 @@ export const UserPage = () => {
 			{user && (
 				<>
 					<UserCard user={user} />
-					<Divider />
-					<UserOptions user={user} />
-					<Divider />
 				</>
 			)}
+			<Divider />
+			<UserOptions userId={userId} />
+			<Divider />
 			<UserRates userId={userId} status={status || "watching"} />
 		</div>
 	);
