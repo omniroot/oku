@@ -1,13 +1,13 @@
 :root {
 	--color-primary: var(--primary);
 	/* --color-primary-80: alpha(var(--primary)); */
-	--color-ternary: var(--tertiary);
+	/* --color-ternary: var(--tertiary);
 	--color-secondary: var(--surface_container);
 	--color-background: var(--background);
 	--color-background-80: hsla(36, 10%, 10%, 80%);
 
 	--color-text: var(--on_background);
-	--color-subtext: var(--on_secondary_container);
+	--color-subtext: var(--on_secondary_container); */
 
 	--color-selection-text: hsl(30, 88%, 68%);
 	--color-selection-background: hsl(27, 14%, 20%);
@@ -46,7 +46,7 @@
 		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms, translate 200ms;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
 	:root {
 		--color-primary: hsl(30, 88%, 64%);
 		--color-primary-80: hsla(30, 88%, 64%, 80%);
@@ -61,4 +61,4 @@
 		--color-selection-text: hsl(30, 88%, 68%);
 		--color-selection-background: hsl(27, 14%, 20%);
 	}
-}
+} */
