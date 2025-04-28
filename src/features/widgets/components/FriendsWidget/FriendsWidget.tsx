@@ -1,11 +1,9 @@
-import { Typography } from "@components/ui/Typography/Typography.tsx";
-import styles from "./FriendsWidget.module.css";
-import { useGetUserFriends } from "@features/users/api/getUserFriends/getUserFriends.api.ts";
-import { useAuth } from "@features/auth/hooks/useAuth.tsx";
+import { ListView } from "@components/ui/ListView/ListView.tsx";
 import { Loader } from "@components/ui/Loader/Loader.tsx";
-import { ImageView } from "@components/ui/ImageView/ImageView.tsx";
-import { Badge } from "@components/ui/Badge/Badge.tsx";
-import dayjs from "dayjs";
+import { useAuth } from "@features/auth/hooks/useAuth.tsx";
+import { useGetUserFriends } from "@features/users/api/getUserFriends/getUserFriends.api.ts";
+import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
+import styles from "./FriendsWidget.module.css";
 
 export const FriendsWidget = () => {
 	const { userId } = useAuth();
@@ -17,16 +15,14 @@ export const FriendsWidget = () => {
 		<div className={styles.friends_widget}>
 			{friends.map((friend) => {
 				return (
-					<div className={styles.friend}>
-						<ImageView src={friend.image.x160} className={styles.avatar} />
-						<div className={styles.info}>
-							<div className={styles.line}>
-								<Typography variant="title">{friend.nickname}</Typography>
-								<Badge className={styles.badge}>{dayjs(friend.last_online_at).fromNow()}</Badge>
-							</div>
-							{/* <div className={styles.line}></div> */}
-						</div>
-					</div>
+					<ListView>
+						<UserItem
+							id={String(friend.id)}
+							avatar={friend.image.x160}
+							lastOnline={friend.last_online_at}
+							title={friend.nickname}
+						/>
+					</ListView>
 				);
 			})}
 		</div>
