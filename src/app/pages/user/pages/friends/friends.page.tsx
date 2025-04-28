@@ -1,11 +1,12 @@
 import { UsersIcon } from "@/shared/assets/icons/UsersIcon.tsx";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { ListView } from "@components/ui/ListView/ListView.tsx";
+import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useGetUserFriends } from "@features/users/api/getUserFriends/getUserFriends.api.ts";
-import { getRouteApi, Link } from "@tanstack/react-router";
+import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
+import { getRouteApi } from "@tanstack/react-router";
 import { useEffect } from "react";
 import styles from "./friends.page.module.css";
-import { Loader } from "@components/ui/Loader/Loader.tsx";
 
 export const FriendsPage = () => {
 	const { setTitle, setIcon } = useHeader();
@@ -22,14 +23,18 @@ export const FriendsPage = () => {
 	return (
 		<div className={styles.page}>
 			{isFetching && <Loader fullscreen />}
-			{friends?.map((friend) => {
-				return (
-					<Link className={styles.user} to="/users/$userId" params={{ userId: String(friend.id) }}>
-						<img src={friend.image.x160} className={styles.avatar} />
-						<Typography>{friend.nickname}</Typography>
-					</Link>
-				);
-			})}
+			<ListView>
+				{friends?.map((friend) => {
+					return (
+						<UserItem
+							id={String(friend.id)}
+							title={friend.nickname}
+							avatar={friend.image.x160}
+							lastOnline={friend.last_online_at}
+						/>
+					);
+				})}
+			</ListView>
 		</div>
 	);
 };
