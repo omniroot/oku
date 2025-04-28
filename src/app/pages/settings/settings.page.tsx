@@ -12,11 +12,13 @@ import { useCallback, useEffect, useState } from "react";
 import { useMaterialTheme } from "@/shared/MaterialTheme/MaterialTheme.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
+import { Checkbox } from "@components/ui/Checkbox/Checkbox.tsx";
 
 export const SettingsPage = () => {
 	const { color, changeColor } = useMaterialTheme();
 	const { setTitle } = useHeader();
 	const [newColor, setNewColor] = useState(color);
+	const [checked, setIsChecked] = useState(true);
 
 	const { addNotification } = useNotifications();
 
@@ -133,25 +135,13 @@ export const SettingsPage = () => {
 						</Typography>
 					</Accordion>
 				</div>
-				<Accordion title="Accrodion">
-					<Typography variant="label" size="large">
-						label size large
-					</Typography>
-					<Typography variant="label" size="medium">
-						label size medium
-					</Typography>
-					<Typography variant="label" size="small">
-						label size small
-					</Typography>
-					<div className={styles.block} style={{ backgroundColor: "var(--tertiary)" }}>
-						<Typography variant="headline" color="tertiary">
-							Typography
-						</Typography>
-					</div>
-					{/* <div className={styles.block} style={{ backgroundColor: getMd("primary") }}>
-					<span style={{ color: getMd("on-primary") }}>new</span>
-				</div> */}
-				</Accordion>
+
+				<Checkbox
+					checked={checked}
+					onChange={() => {
+						setIsChecked(!checked);
+					}}
+				/>
 
 				<Button onClick={not}>Add notificaition</Button>
 				<Button onClick={not} style={{ backgroundColor: "var(--color-primary)" }}>
