@@ -1,0 +1,21 @@
+.useritem {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	gap: 8px;
+	transition: var(--animation);
+
+	&:hover {
+		background-color: var(--md-surface-variant);
+	}
+
+	.avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 18px;
+	}
+
+	& > *:last-child {
+		margin-left: auto;
+	}
+}
