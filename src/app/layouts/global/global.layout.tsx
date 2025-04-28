@@ -5,7 +5,6 @@ import { HeartIcon } from "@/shared/assets/icons/HeartIcon.tsx";
 import { HomeIcon } from "@/shared/assets/icons/HomeIcon.tsx";
 import "@/shared/components/ui/UIProvider/UIProvider.module.css";
 import { BottomNavigation } from "@components/business/BottomNavigation/BottomNavigation.tsx";
-import { ModernBottomNavigation } from "@components/business/ModernBottomNavigation/ModernBottomNavigation.tsx";
 import { FAB } from "@components/ui/FAB/FAB.tsx";
 import { FABLayout } from "@components/ui/FABLayout/FABLayout.tsx";
 import { Header } from "@components/ui/Header/Header.tsx";
