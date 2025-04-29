@@ -14,6 +14,7 @@ import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
 import { Checkbox } from "@components/ui/Checkbox/Checkbox.tsx";
 import { ColorPreview } from "@components/ui/ColorPreview/ColorPreview.tsx";
+import { ListView } from "@components/ui/ListView/ListView.tsx";
 
 export const SettingsPage = () => {
 	const { color, changeColor } = useMaterialTheme();
@@ -33,11 +34,18 @@ export const SettingsPage = () => {
 
 	return (
 		<div className={styles.page}>
+			<Box style={{ width: "100%" }} backgroundColor="secondary">
+				123
+			</Box>
 			<HeadingSection title="Change color">
-				<Box alignItems="center" gap="8px">
-					<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
-					<ColorPreview color={newColor} />
-				</Box>
+				<ListView orientation="horizontal">
+					<Box style={{ width: "100%" }}>
+						<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
+					</Box>
+					<Box alignItems="center">
+						<ColorPreview color={newColor} />
+					</Box>
+				</ListView>
 			</HeadingSection>
 
 			<HeadingSection title="Preview theme">
