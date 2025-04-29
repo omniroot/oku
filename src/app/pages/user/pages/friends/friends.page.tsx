@@ -23,15 +23,25 @@ export const FriendsPage = () => {
 	return (
 		<div className={styles.page}>
 			{isFetching && <Loader fullscreen />}
-			<ListView>
+			<ListView orientation="horizontal">
 				{friends?.map((friend) => {
 					return (
-						<UserItem
-							id={String(friend.id)}
-							title={friend.nickname}
-							avatar={friend.image.x160}
-							lastOnline={friend.last_online_at}
-						/>
+						<>
+							<UserItem
+								id={String(friend.id)}
+								title={friend.nickname}
+								avatar={friend.image.x160}
+								lastOnline={friend.last_online_at}
+								variant="mini"
+							/>
+							<UserItem
+								id={String(friend.id)}
+								title={friend.nickname}
+								avatar={friend.image.x160}
+								lastOnline={friend.last_online_at}
+								variant="mini"
+							/>
+						</>
 					);
 				})}
 			</ListView>
