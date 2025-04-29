@@ -13,6 +13,7 @@ import { useMaterialTheme } from "@/shared/MaterialTheme/MaterialTheme.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { useNotifications } from "@features/notifications/stores/notifications.store.tsx";
 import { Checkbox } from "@components/ui/Checkbox/Checkbox.tsx";
+import { ColorPreview } from "@components/ui/ColorPreview/ColorPreview.tsx";
 
 export const SettingsPage = () => {
 	const { color, changeColor } = useMaterialTheme();
@@ -32,9 +33,15 @@ export const SettingsPage = () => {
 
 	return (
 		<div className={styles.page}>
+			<HeadingSection title="Change color">
+				<Box alignItems="center" gap="8px">
+					<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
+					<ColorPreview color={newColor} />
+				</Box>
+			</HeadingSection>
+
 			<HeadingSection title="Preview theme">
 				<div className={styles.preview_colors_content}>
-					<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
 					<Accordion title="Colors">
 						<Box color="primary" backgroundColor="primary">
 							primary
