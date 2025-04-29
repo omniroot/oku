@@ -3,7 +3,6 @@ import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { useAuth } from "@features/auth/hooks/useAuth.tsx";
 import { useGetUserFriends } from "@features/users/api/getUserFriends/getUserFriends.api.ts";
 import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
-import styles from "./FriendsWidget.module.css";
 
 export const FriendsWidget = () => {
 	const { userId } = useAuth();
@@ -12,19 +11,18 @@ export const FriendsWidget = () => {
 	if (isLoading) return <Loader />;
 	if (!friends) return null;
 	return (
-		<div className={styles.friends_widget}>
+		<ListView orientation="horizontal">
 			{friends.map((friend) => {
 				return (
-					<ListView>
-						<UserItem
-							id={String(friend.id)}
-							avatar={friend.image.x160}
-							lastOnline={friend.last_online_at}
-							title={friend.nickname}
-						/>
-					</ListView>
+					<UserItem
+						id={String(friend.id)}
+						avatar={friend.image.x160}
+						lastOnline={friend.last_online_at}
+						title={friend.nickname}
+						variant="mini"
+					/>
 				);
 			})}
-		</div>
+		</ListView>
 	);
 };
