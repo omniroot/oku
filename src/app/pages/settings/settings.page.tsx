@@ -34,13 +34,15 @@ export const SettingsPage = () => {
 
 	return (
 		<div className={styles.page}>
-			<Box style={{ width: "100%" }} backgroundColor="secondary">
-				123
-			</Box>
 			<HeadingSection title="Change color">
 				<ListView orientation="horizontal">
 					<Box style={{ width: "100%" }}>
-						<Input value={newColor} onChange={setNewColor} onSubmit={() => changeColor(newColor)} />
+						<Input
+							value={newColor}
+							onChange={setNewColor}
+							onSubmit={() => changeColor(newColor)}
+							classNames={{ form: styles.color_input }}
+						/>
 					</Box>
 					<Box alignItems="center">
 						<ColorPreview color={newColor} />
