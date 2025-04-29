@@ -1,5 +1,6 @@
 .useritem {
 	display: flex;
+	position: relative;
 	align-items: center;
 	text-decoration: none;
 	gap: 8px;
@@ -7,6 +8,23 @@
 
 	&:hover {
 		background-color: var(--md-surface-variant);
+	}
+
+	&[data-variant="mini"] {
+		width: fit-content;
+		height: fit-content;
+		flex-direction: column;
+		gap: 4px;
+
+		.avatar {
+			width: 64px;
+			height: 64px;
+			border-radius: 18px;
+		}
+
+		& > *:last-child {
+			margin-left: 0;
+		}
 	}
 
 	.avatar {
