@@ -44,6 +44,8 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 		window.open(`/animes/${id}`, "_blank");
 	};
 
+	console.log(name, "=>", date);
+
 	return (
 		<Link
 			className={styles.anime_vertical_card}
@@ -56,8 +58,8 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 			{/* TODO: reweite to ImageView */}
 			<div className={styles.poster} style={{ backgroundImage: `url(${poster || ""})` }}>
 				<div className={styles.top}>
-					<Badge>{date}</Badge>
-					<Badge>{kind}</Badge>
+					{date != "null" && <Badge>{date}</Badge>}
+					{kind && <Badge>{kind}</Badge>}
 				</div>
 				<div className={styles.bottom}>
 					<Badge>{userEpisodes ? `${userEpisodes} / ${episodes}` : `${episodes}`}</Badge>
@@ -77,8 +79,8 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 					<div className={styles.context_subinfo}>
 						<Typography variant="title">{name}</Typography>
 						<div style={{ display: "inline-flex", gap: "8px" }}>
-							<Badge>{kind}</Badge>
-							<Badge>{date}</Badge>
+							{date != "null" && <Badge>{date}</Badge>}
+							{kind && <Badge>{kind}</Badge>}
 						</div>
 					</div>
 				</div>
