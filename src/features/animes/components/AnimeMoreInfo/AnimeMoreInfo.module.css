@@ -1,10 +1,9 @@
 .anime_more_info {
-	display: flex;
-	justify-content: space-around;
-	padding: 8px 0;
-	gap: 8px;
+	width: 100%;
+	justify-content: center;
 
 	.element {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
