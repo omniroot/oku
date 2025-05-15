@@ -1,11 +1,10 @@
-import { IUser } from "@features/users/api/getUser/getUser.types.ts";
-import styles from "./UserCard.module.css";
-import { FC } from "react";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
 import { Badge } from "@components/ui/Badge/Badge.tsx";
-import dayjs from "dayjs";
 import { Tooltip } from "@components/ui/Tooltip/Tooltip.tsx";
-import { decodeShikimori } from "@pages/settings/settings.page.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { IUser } from "@features/users/api/getUser/getUser.types.ts";
+import dayjs from "dayjs";
+import { FC } from "react";
+import styles from "./UserCard.module.css";
 
 interface IUserCardProps {
 	user: IUser;

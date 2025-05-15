@@ -90,7 +90,7 @@ const lexing = (input: string) => {
 const parsing = (tokens: IToken[]) => {
 	let result = "";
 
-	const add = (text, newText) => {
+	const add = (text: string, newText: string) => {
 		if (text[-1] !== " ") text += " ";
 		return (text += newText);
 	};
