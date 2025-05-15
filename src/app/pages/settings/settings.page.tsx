@@ -15,12 +15,112 @@ import { useNotifications } from "@features/notifications/stores/notifications.s
 import { Checkbox } from "@components/ui/Checkbox/Checkbox.tsx";
 import { ColorPreview } from "@components/ui/ColorPreview/ColorPreview.tsx";
 import { ListView } from "@components/ui/ListView/ListView.tsx";
+import smileys from "~/public/smileys.json";
+
+interface IToken {
+	type: string;
+	value: string;
+}
+
+function isDigit(char: string) {
+	return /[0-9]/.test(char);
+}
+
+// Проверяем, является ли символ буквой
+function isLetter(char: string) {
+	return /[a-zA-Z]/.test(char);
+}
+
+const lexing = (input: string) => {
+	const tokens: IToken[] = [];
+	let i = 0;
+
+	while (i < input.length) {
+		const char = input[i];
+
+		if (isDigit(char)) {
+			let number = "";
+			while (i < input.length && isDigit(input[i])) {
+				number += input[i];
+				i++;
+			}
+			tokens.push({ type: "number", value: number });
+			continue;
+		}
+
+		// Распознаем текст
+		if (isLetter(char)) {
+			let text = "";
+			while (i < input.length && (isLetter(input[i]) || isDigit(input[i]))) {
+				text += input[i];
+				i++;
+			}
+			tokens.push({ type: "text", value: text });
+			continue;
+		}
+
+		// Распознаем эмодзи или одиночный ':'
+		if (char === ":") {
+			let emoji = ":";
+			const start = i; // Сохраняем начальную позицию
+			i++;
+			while (i < input.length && input[i] !== ":") {
+				emoji += input[i];
+				i++;
+			}
+			if (i < input.length && input[i] === ":") {
+				emoji += ":";
+				i++;
+				tokens.push({ type: "emoji", value: emoji });
+			} else {
+				// Если нет закрывающего ':', возвращаем i назад и добавляем только ':'
+				tokens.push({ type: "operator", value: ":" });
+				i = start + 1; // Возвращаемся к символу после начального ':'
+			}
+			continue;
+		}
+
+		// Для всех остальных символов
+		tokens.push({ type: "unknown", value: char });
+		i++;
+	}
+	return tokens;
+};
+
+const parsing = (tokens: IToken[]) => {
+	let result = "";
+
+	const add = (text, newText) => {
+		if (text[-1] !== " ") text += " ";
+		return (text += newText);
+	};
+
+	tokens.map((token) => {
+		if (token.type == "unknown") return;
+
+		if (token.type == "emoji") {
+			const path = smileys.find((s) => s.bbcode === token.value)?.path;
+			result = add(result, `<img src="https://shikimori.one${path}" alt="${token.value}" />`);
+			return;
+		}
+		result = add(result, token.value);
+	});
+
+	return result;
+};
+
+export const decodeShikimori = (text: string) => {
+	const tokens = lexing(text);
+	return parsing(tokens);
+};
 
 export const SettingsPage = () => {
 	const { color, changeColor } = useMaterialTheme();
 	const { setTitle } = useHeader();
 	const [newColor, setNewColor] = useState(color);
 	const [checked, setIsChecked] = useState(true);
+	const [value, setValue] = useState("<test> hello :heart: world ");
+	const [lexer, setLexer] = useState("");
 
 	const { addNotification } = useNotifications();
 
@@ -159,6 +259,10 @@ export const SettingsPage = () => {
 						setIsChecked(!checked);
 					}}
 				/>
+
+				<Input value={value} onChange={(e) => setValue(e)} />
+				<Button onClick={() => setLexer(parsing(lexing(value)))}>Lexer</Button>
+				<span>{lexer}</span>
 
 				<Button onClick={not}>Add notificaition</Button>
 				<Button onClick={not} style={{ backgroundColor: "var(--color-primary)" }}>
