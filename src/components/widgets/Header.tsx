@@ -1,7 +1,7 @@
-import { ProfileButton } from "@/components/business/ProfileButton.tsx";
+import { ProfileQuickActions } from "@/components/business/ProfileQuickActions.tsx";
 import { useAuthStore } from "@/stores/auth.store.ts";
-import { Button, HStack, IconButton, Text } from "@chakra-ui/react";
-import { IconChevronDown, IconList, IconSettings } from "@tabler/icons-react";
+import { HStack, IconButton } from "@chakra-ui/react";
+import { IconList } from "@tabler/icons-react";
 
 export const Header = () => {
   const { isAuth } = useAuthStore();
@@ -15,7 +15,7 @@ export const Header = () => {
         </div>
 
         <div>
-          <ProfileButton />
+          <ProfileQuickActions />
         </div>
       </header>
     </HStack>

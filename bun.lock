@@ -5,12 +5,14 @@
       "name": "oku",
       "dependencies": {
         "@chakra-ui/react": "^3.25.0",
+        "@origranot/ts-logger": "^1.12.0",
         "@tabler/icons-react": "^3.34.1",
         "@tanstack/react-query": "^5.85.5",
         "@tanstack/react-router": "^1.131.27",
         "@types/node": "^24.3.0",
         "axios": "^1.11.0",
         "next-themes": "^0.4.6",
+        "node-shikimori": "^2.1.0",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
         "react-query-kit": "^3.3.2",
@@ -183,6 +185,8 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
+
+    "@origranot/ts-logger": ["@origranot/ts-logger@1.12.0", "", {}, "sha512-0mToYzg7zqisWUzddp+uy/ltLH03vndvgChFGd4J9hKQx44VaWNbslsNVrKLcFHhH+UCs5Bu67OIci5rK1gi/A=="],
 
     "@pandacss/is-valid-prop": ["@pandacss/is-valid-prop@0.54.0", "", {}, "sha512-UhRgg1k9VKRCBAHl+XUK3lvN0k9bYifzYGZOqajDid4L1DyU813A1L0ZwN4iV9WX5TX3PfUugqtgG9LnIeFGBQ=="],
 
@@ -653,6 +657,8 @@
     "natural-compare": ["natural-compare@1.4.0", "", {}, "sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw=="],
 
     "next-themes": ["next-themes@0.4.6", "", { "peerDependencies": { "react": "^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc", "react-dom": "^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" } }, "sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA=="],
+
+    "node-shikimori": ["node-shikimori@2.1.0", "", {}, "sha512-hDcEqV6DGq/RYPUbj+q4UoaSOP9Y5u7WumHyQmbZil1B3oQURubU1HBV5rZT700mpwoRfF+i2hzEkHGjztD5ZA=="],
 
     "optionator": ["optionator@0.9.4", "", { "dependencies": { "deep-is": "^0.1.3", "fast-levenshtein": "^2.0.6", "levn": "^0.4.1", "prelude-ls": "^1.2.1", "type-check": "^0.4.0", "word-wrap": "^1.2.5" } }, "sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g=="],
 

@@ -1,16 +1,19 @@
-import { CONSTS } from "@/shared/consts.ts";
-import { useAuthStore } from "@/stores/auth.store.ts";
-import { HStack, Text } from "@chakra-ui/react";
+import { getWhoamiOptions } from "@/api/shikimori.ts";
+import { HStack, Image } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
 
 export const ProfileButton = () => {
-  const { isAuth } = useAuthStore();
+  const { data: user } = useQuery(getWhoamiOptions());
+  console.log(user);
 
   return (
-    <HStack
-      bg={"bg.subtle"}
-      onClick={() => window.open(CONSTS.OAUTH_URL, "_self")}
-    >
-      {isAuth ? <Text>Authorizated</Text> : <>Authorizate</>}
+    <HStack>
+      <Image
+        src={user?.image.x160}
+        w={"32px"}
+        h={"32px"}
+        borderRadius={"50%"}
+      />
     </HStack>
   );
 };

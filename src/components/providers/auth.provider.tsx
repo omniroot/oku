@@ -1,6 +1,7 @@
 import { useAuthWhoami, type IAuthTokens } from "@/api/auth/auth.api.ts";
 import { shikimori } from "@/api/shikimori.ts";
 import { CONSTS } from "@/shared/consts.ts";
+import { logger } from "@/shared/logger.ts";
 import { useAuthStore } from "@/stores/auth.store.ts";
 import { getRouteApi } from "@tanstack/react-router";
 import { useLayoutEffect, type ReactNode } from "react";
@@ -14,43 +15,48 @@ export const saveTokens = ({ access_token, refresh_token }: IAuthTokens) => {
 const route = getRouteApi("/");
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const navigate = route.useNavigate();
-  const { code }: { code: string } = route.useSearch();
-  const { data: whoami } = useAuthWhoami();
-  const { setIsAuth } = useAuthStore();
+  logger.debug({
+    name: "alex",
+    age: 123,
+  });
 
-  useLayoutEffect(() => {
-    const login = async () => {
-      if (code && code.length > 1) {
-        const tokens = await shikimori.auth.fetchTokens(code);
-        if (!tokens) {
-          console.log("Tokens not received");
-          return false;
-        }
-        saveTokens(tokens);
+  // const navigate = route.useNavigate();
+  // const { code }: { code: string } = route.useSearch();
+  // const { data: whoami } = useAuthWhoami();
+  // const { setIsAuth } = useAuthStore();
 
-        // fetch current user id
-        const userId = await shikimori.auth.getCurrentUserId();
-        if (!userId) {
-          console.log("user with new token not received");
-          return;
-        }
-        setIsAuth(true);
+  // useLayoutEffect(() => {
+  //   const login = async () => {
+  //     if (code && code.length > 1) {
+  //       const tokens = await shikimori.auth.fetchTokens(code);
+  //       if (!tokens) {
+  //         console.log("Tokens not received");
+  //         return false;
+  //       }
+  //       saveTokens(tokens);
 
-        window.open(CONSTS.URL, "_self");
-      }
-    };
-    login();
-  }, [code]);
+  //       // fetch current user id
+  //       const userId = await shikimori.auth.getCurrentUserId();
+  //       if (!userId) {
+  //         console.log("user with new token not received");
+  //         return;
+  //       }
+  //       setIsAuth(true);
 
-  useLayoutEffect(() => {
-    console.log({ whoami });
-    if (!whoami) {
-      setIsAuth(false);
-      return;
-    }
-    setIsAuth(true);
-  }, [whoami]);
+  //       window.open(CONSTS.URL, "_self");
+  //     }
+  //   };
+  //   login();
+  // }, [code]);
+
+  // useLayoutEffect(() => {
+  //   console.log({ whoami });
+  //   if (!whoami) {
+  //     setIsAuth(false);
+  //     return;
+  //   }
+  //   setIsAuth(true);
+  // }, [whoami]);
 
   return children;
 };
