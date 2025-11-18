@@ -1,6 +1,6 @@
 import { api } from "@/shared/api/api.ts";
-import { IAnimeSimilar } from "@features/animes/api/getAnimeSimilars/getAnimeSimilars.types.ts";
-import { AxiosRequestConfig } from "axios";
+import type { IAnimeSimilar } from "@features/animes/api/getAnimeSimilars/getAnimeSimilars.types.ts";
+import type { AxiosRequestConfig } from "axios";
 import { createQuery } from "react-query-kit";
 
 interface IGetAnimeSimilars {

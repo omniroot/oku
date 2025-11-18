@@ -7,7 +7,9 @@
 	padding: 4px;
 	border-radius: 12px;
 
-	transition: background-color 200ms, scale 200ms;
+	transition:
+		background-color 200ms,
+		scale 200ms;
 
 	&:hover {
 		background-color: var(--md-surface-variant);
@@ -25,7 +27,7 @@
 		justify-content: space-between;
 
 		padding: 4px;
-		aspect-ratio: 9/12;
+		aspect-ratio: 9 / 12;
 
 		.top {
 			width: 100%;
@@ -55,7 +57,7 @@
 		width: calc(100% / 3 - 12px);
 
 		.poster {
-			aspect-ratio: 9/14;
+			aspect-ratio: 9 / 14;
 		}
 	}
 }
@@ -65,7 +67,7 @@
 		width: calc(100% / 5 - 12px);
 
 		.poster {
-			aspect-ratio: 9/14;
+			aspect-ratio: 9 / 14;
 		}
 	}
 }

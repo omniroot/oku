@@ -1,15 +1,21 @@
 import { getEpisodesOptions } from "@/shared/utils/getEpisodesElements.ts";
 import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
 import { Select } from "@components/ui/Select/Select.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { useUpdateUserRate } from "@features/userRates/api/updateUserRate/updateUserRate.api.ts";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
-import { FC, useState } from "react";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import { type FC, useState } from "react";
 import styles from "./AnimeRate.module.css";
 import { Input } from "@components/ui/Input/Input.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
 
-const statuses: IUserRateStatus[] = ["watching", "planned", "completed", "on_hold", "dropped"];
+const statuses: IUserRateStatus[] = [
+	"watching",
+	"planned",
+	"completed",
+	"on_hold",
+	"dropped",
+];
 
 interface IAnimeRateProps {
 	anime: IAnime;
@@ -34,7 +40,10 @@ export const AnimeRate: FC<IAnimeRateProps> = ({ anime }) => {
 
 	const onEpisodesSelectChange = (newValue: typeof defaultEpisodeValue | null) => {
 		if (!newValue) return;
-		updateUserRate({ userRateId: anime.userRate?.id || 0, episodes: Number(newValue.value) });
+		updateUserRate({
+			userRateId: anime.userRate?.id || 0,
+			episodes: Number(newValue.value),
+		});
 	};
 
 	const onStatusSelectChange = (newValue: typeof defaultEpisodeValue | null) => {

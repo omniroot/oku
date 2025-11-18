@@ -2,7 +2,7 @@ import {
 	getMaterialScheme,
 	applyMaterialTheme,
 } from "@/shared/MaterialTheme/MaterialTheme.utils.ts";
-import { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
+import type { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
 import { useState, useEffect, useContext, createContext } from "react";
 import "./MaterialTheme.css";
 
@@ -15,7 +15,10 @@ const MaterialThemeContext = createContext<
 	| {
 			color: string;
 			changeColor: (color: string) => void;
-			getVar: (name: string | undefined, type?: "background" | "color") => string | undefined;
+			getVar: (
+				name: string | undefined,
+				type?: "background" | "color",
+			) => string | undefined;
 	  }
 	| undefined
 >(undefined);
@@ -50,7 +53,10 @@ export const MaterialThemeProvider = ({
 		}
 	};
 
-	const getVar = (name: IUIColor | string | undefined, type: "background" | "color" = "color") => {
+	const getVar = (
+		name: IUIColor | string | undefined,
+		type: "background" | "color" = "color",
+	) => {
 		if (!name) return;
 		const convertedName = name.toLocaleLowerCase().replaceAll("_", "-");
 		// console.log({ convertedName });

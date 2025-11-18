@@ -1,7 +1,7 @@
 import { CONSTS } from "@/shared/consts/consts.ts";
 import { authApi } from "@features/auth/api/auth.api.ts";
 // import { authApi } from "@/shared/services/auth/auth.api.ts";
-import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
+import axios, { type AxiosRequestHeaders, type AxiosResponse } from "axios";
 
 export const api = axios.create({
 	baseURL: "https://shikimori.one/api/",
@@ -49,7 +49,9 @@ api.interceptors.response.use(
 		) {
 			originalRequest._retry = true;
 			console.log("Trying refreshing tokens");
-			const tokens = await authApi.refreshTokens(localStorage.getItem("refresh_token") || "");
+			const tokens = await authApi.refreshTokens(
+				localStorage.getItem("refresh_token") || "",
+			);
 			console.log("Tokens: ", tokens);
 
 			if (tokens) {

@@ -1,4 +1,4 @@
-import { IAnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
+import type { IAnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
 import { useImmerAtom } from "jotai-immer";
 import { atomWithStorage } from "jotai/utils";
 

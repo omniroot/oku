@@ -1,6 +1,6 @@
 import { api } from "@/shared/api/api.ts";
-import { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import type { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { createMutation } from "react-query-kit";
 
 interface IAddUserRate {

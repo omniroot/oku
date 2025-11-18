@@ -1,17 +1,17 @@
 import { TrashIcon } from "@/shared/assets/icons/TrashIcon.tsx";
 import { Dialog } from "@components/ui/Dialog/Dialog.tsx";
-import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import { type ISelectOption, Select } from "@components/ui/Select/Select.tsx";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { useGetAnimes } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { useAuth } from "@features/auth/hooks/useAuth.tsx";
 import { useAddUserRate } from "@features/userRates/api/addUserRate/addUserRate.api.ts";
 import { useDeleteUserRate } from "@features/userRates/api/deleteUserRate/deleteUserRate.api.ts";
 import { useUpdateUserRate } from "@features/userRates/api/updateUserRate/updateUserRate.api.ts";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { useQueryClient } from "@tanstack/react-query";
 import { BottomSheet } from "@ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@ui/Button/Button.tsx";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import styles from "./UserRateSheet.module.css";
 
 const getEpisodesSelectElements = (maxEpisodes: number) => {
@@ -123,7 +123,9 @@ export const UserRateSheet: FC<IUserRateEditBottomSheetProps> = ({
 					<Select
 						options={episodesSelectElements}
 						defaultValue={episodeElement}
-						onChange={(newValue) => setEpisodeElement(newValue || { label: "", value: "" })}
+						onChange={(newValue) =>
+							setEpisodeElement(newValue || { label: "", value: "" })
+						}
 					/>
 					<Select
 						options={statusSelectElements}
@@ -142,7 +144,11 @@ export const UserRateSheet: FC<IUserRateEditBottomSheetProps> = ({
 							Delete
 						</Button>
 					)}
-					<Button variant="primary" className={styles.save_button} onClick={onSaveButtonClick}>
+					<Button
+						variant="primary"
+						className={styles.save_button}
+						onClick={onSaveButtonClick}
+					>
 						{isExistInUserRate ? "Save" : "Add"}
 					</Button>
 				</div>

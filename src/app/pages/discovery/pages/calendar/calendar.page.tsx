@@ -4,7 +4,7 @@ import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useGetCalendar } from "@features/calendar/api/calendar.api.ts";
-import { ICalendar } from "@features/calendar/api/calendar.interface.ts";
+import type { ICalendar } from "@features/calendar/api/calendar.interface.ts";
 import { createLazyRoute } from "@tanstack/react-router";
 import { HeadingSection } from "@ui/HeadingSection/HeadingSection.tsx";
 import styles from "./calendar.page.module.css";
@@ -50,7 +50,9 @@ export const CalendarPage = () => {
 										episodes={anime.anime.episodes}
 										kind={anime.anime.kind}
 										date={
-											convertShikimoriDate(anime.anime.released_on || anime.anime.aired_on).year
+											convertShikimoriDate(
+												anime.anime.released_on || anime.anime.aired_on,
+											).year
 										}
 									/>
 								);

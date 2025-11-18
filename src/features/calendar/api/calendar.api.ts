@@ -1,7 +1,7 @@
 import { api } from "@/shared/api/api.ts";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createQuery } from "react-query-kit";
-import { ICalendar } from "./calendar.interface.ts";
+import type { ICalendar } from "./calendar.interface.ts";
 
 interface IGetCalendar {
 	config?: AxiosRequestConfig;

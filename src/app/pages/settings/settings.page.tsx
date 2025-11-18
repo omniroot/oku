@@ -100,7 +100,10 @@ const parsing = (tokens: IToken[]) => {
 
 		if (token.type == "emoji") {
 			const path = smileys.find((s) => s.bbcode === token.value)?.path;
-			result = add(result, `<img src="https://shikimori.one${path}" alt="${token.value}" />`);
+			result = add(
+				result,
+				`<img src="https://shikimori.one${path}" alt="${token.value}" />`,
+			);
 			return;
 		}
 		result = add(result, token.value);

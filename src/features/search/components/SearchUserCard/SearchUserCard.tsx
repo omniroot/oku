@@ -1,5 +1,5 @@
-import { IGetUser } from "@features/users/api/getUsers/getUsers.api.ts";
-import { FC } from "react";
+import type { IGetUser } from "@features/users/api/getUsers/getUsers.api.ts";
+import type { FC } from "react";
 import styles from "./SearchUserCard.module.css";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
 import { ImageView } from "@components/ui/ImageView/ImageView.tsx";
@@ -14,7 +14,11 @@ interface IProps {
 export const SearchUserCard: FC<IProps> = ({ user }) => {
 	const lastOnline = dayjs(user.lastOnlineAt).fromNow();
 	return (
-		<Link to="/users/$userId" params={{ userId: user.id }} className={styles.search_user_card}>
+		<Link
+			to="/users/$userId"
+			params={{ userId: user.id }}
+			className={styles.search_user_card}
+		>
 			<ImageView src={user.avatarUrl || "404.png"} className={styles.avatar} />
 			<div>
 				<Typography variant="title">{user.nickname}</Typography>

@@ -1,10 +1,10 @@
 // import { WatchBottomSheet } from "@pages/anime/_components/AnimeWatchContainer/_components/WatchBottomSheet/WatchBottomSheet.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { AnimeWatchSheet } from "@features/animes/components/AnimeWatchSheet/AnimeWatchSheet.tsx";
 import { Button } from "@ui/Button/Button.tsx";
 import { Divider } from "@ui/Divider/Divider.tsx";
 import clsx from "clsx";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import styles from "./AnimeWatchContainer.module.css";
 import { HentaiWatchSheet } from "@features/animes/components/HentaiWatchSheet/HentaiWatchSheet.tsx";
 import { UserRateSheet } from "@features/animes/components/UserRateSheet/UserRateSheet.tsx";

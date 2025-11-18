@@ -4,7 +4,7 @@ import { UsersIcon } from "@/shared/assets/icons/UsersIcon.tsx";
 import { ListView } from "@components/ui/ListView/ListView.tsx";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
 import { Link } from "@tanstack/react-router";
-import { FC } from "react";
+import type { FC } from "react";
 import styles from "./UserOptions.module.css";
 
 interface IUserOptionsProps {
@@ -26,7 +26,11 @@ export const UserOptions: FC<IUserOptionsProps> = ({ userId }) => {
 						favorites
 					</Typography>
 				</Link>
-				<Link className={styles.option} to="/users/$userId/achievements" params={{ userId }}>
+				<Link
+					className={styles.option}
+					to="/users/$userId/achievements"
+					params={{ userId }}
+				>
 					<CupIcon />
 					<Typography variant="body" size="large">
 						achievements

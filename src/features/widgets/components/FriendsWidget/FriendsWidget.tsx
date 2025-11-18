@@ -6,7 +6,9 @@ import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
 
 export const FriendsWidget = () => {
 	const { userId } = useAuth();
-	const { data: friends, isLoading } = useGetUserFriends({ variables: { userId: Number(userId) } });
+	const { data: friends, isLoading } = useGetUserFriends({
+		variables: { userId: Number(userId) },
+	});
 
 	if (isLoading) return <Loader />;
 	if (!friends) return null;

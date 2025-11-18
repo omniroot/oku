@@ -42,7 +42,8 @@
 	--box-shadow-hover: 0px 5px 15px rgba(0, 0, 0, 0.5);
 
 	--blur: blur(8px);
-	--animation: width 200ms, height 200ms, transform 200ms, opacity 200ms, scale 200ms, filter 200ms,
+	--animation:
+		width 200ms, height 200ms, transform 200ms, opacity 200ms, scale 200ms, filter 200ms,
 		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms, translate 200ms;
 }
 

@@ -1,4 +1,4 @@
-import { ReactNode } from "@tanstack/react-router";
+import type { ReactNode } from "@tanstack/react-router";
 import { create } from "zustand";
 
 interface IHeader {

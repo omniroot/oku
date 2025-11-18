@@ -1,8 +1,8 @@
 import { graphql } from "@/shared/api/graphql.ts";
-import { IAnime, IAnimeResponse } from "@features/animes/api/anime.interface.ts";
+import type { IAnime, IAnimeResponse } from "@features/animes/api/anime.interface.ts";
 import { GET_ANIMES } from "@features/animes/api/getAnimes/getAnimes.graphql.ts";
-import { IAnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
-import { AxiosRequestConfig } from "axios";
+import type { IAnimeStatus } from "@features/animes/api/getAnimes/getAnimes.types.ts";
+import type { AxiosRequestConfig } from "axios";
 import { createInfiniteQuery, createQuery } from "react-query-kit";
 
 interface IGetAnimes {

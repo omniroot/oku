@@ -1,4 +1,4 @@
-import { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
+import type { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
 import { atom, useAtom } from "jotai";
 
 interface INotification {

@@ -1,6 +1,6 @@
 import { ListView } from "@components/ui/ListView/ListView.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { FC } from "react";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { FC } from "react";
 import styles from "./AnimeMoreInfo.module.css";
 
 const getColorByScore = (score: number) => {

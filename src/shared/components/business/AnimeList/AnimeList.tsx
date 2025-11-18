@@ -1,4 +1,4 @@
-import { ReactNode, FC } from "react";
+import type { ReactNode, FC } from "react";
 import styles from "./AnimeList.module.css";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 interface IAnimeListProps {

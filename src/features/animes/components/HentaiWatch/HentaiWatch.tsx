@@ -1,5 +1,5 @@
-import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { FC } from "react";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { FC } from "react";
 import styles from "./HentaiWatch.module.css";
 import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
 import { openAnimeExternal } from "@/shared/utils/openAnimeSites.ts";
@@ -23,7 +23,10 @@ export const HentaiWatch: FC<IHentaiWatchProps> = ({ anime }) => {
 		<HeadingSection title={`Watch`}>
 			<div className={styles.hentai_watch}>
 				<Button onClick={() => openHentaiHaven(anime.name)}>HentaiHaven</Button>
-				<Button onClick={() => openAnimeExternal(anime.name, "nhentai")} variant="nhentai">
+				<Button
+					onClick={() => openAnimeExternal(anime.name, "nhentai")}
+					variant="nhentai"
+				>
 					NHentai
 				</Button>
 				<Button onClick={() => openAnimeExternal(anime.name, "hanime")} variant="hanime">

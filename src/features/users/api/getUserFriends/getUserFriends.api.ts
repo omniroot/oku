@@ -1,6 +1,6 @@
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createQuery } from "react-query-kit";
-import { IFriend } from "./getUserFriends.types.ts";
+import type { IFriend } from "./getUserFriends.types.ts";
 import { api } from "@/shared/api/api.ts";
 
 interface IGetUserFriends {

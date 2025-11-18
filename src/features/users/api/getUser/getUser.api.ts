@@ -1,7 +1,7 @@
 import { api } from "@/shared/api/api.ts";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createQuery } from "react-query-kit";
-import { IUser } from "./getUser.types.ts";
+import type { IUser } from "./getUser.types.ts";
 
 interface IGetUser {
 	userId: number;

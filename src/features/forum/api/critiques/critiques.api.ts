@@ -1,7 +1,7 @@
 import { api } from "@/shared/api/api.ts";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createInfiniteQuery } from "react-query-kit";
-import { ICritique } from "./critiques.types.ts";
+import type { ICritique } from "./critiques.types.ts";
 
 interface IGetCritiques {
 	page?: number;

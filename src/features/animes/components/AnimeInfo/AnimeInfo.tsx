@@ -1,10 +1,10 @@
 import { parseShikimoriText } from "@/shared/utils/parseShikimoriText.ts";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { BottomSheet } from "@ui/BottomSheet/BottomSheet.tsx";
 import { Divider } from "@ui/Divider/Divider.tsx";
 import { ImageView } from "@ui/ImageView/ImageView.tsx";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import styles from "./AnimeInfo.module.css";
 
 interface IAnimeInfoProps {
@@ -54,7 +54,9 @@ export const AnimeInfo: FC<IAnimeInfoProps> = ({ anime }) => {
 				onOutsideClick={toggleDescriptionBottomSheet}
 			>
 				<div
-					dangerouslySetInnerHTML={{ __html: parseShikimoriText(anime.description || "") }}
+					dangerouslySetInnerHTML={{
+						__html: parseShikimoriText(anime.description || ""),
+					}}
 				></div>
 			</BottomSheet>
 		</div>

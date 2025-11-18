@@ -52,7 +52,8 @@ export const ModernBottomNavigation = () => {
 			const bottomNavgationWidth = bottomNavigationRef.current.offsetWidth;
 
 			const previousItemLeftOffset = prevActiveItem?.offsetLeft ?? 4;
-			const previousItemRightOffset = bottomNavgationWidth - (prevActiveItem?.offsetLeft || 0) || 4;
+			const previousItemRightOffset =
+				bottomNavgationWidth - (prevActiveItem?.offsetLeft || 0) || 4;
 
 			const activeItemLeftOffset = activeItem.offsetLeft;
 			const activeItemRightOffset = bottomNavgationWidth - (activeItem.offsetLeft || 0);
@@ -94,7 +95,8 @@ export const ModernBottomNavigation = () => {
 			if (direction === "right") {
 				activeIndicatorStartRef.current.style.visibility = "visible";
 
-				activeIndicatorStartRef.current.style.left = previousItemLeftOffset - toRight + "px";
+				activeIndicatorStartRef.current.style.left =
+					previousItemLeftOffset - toRight + "px";
 				activeIndicatorStartRef.current.style.width =
 					activeItemLeftOffset - previousItemLeftOffset - padding + 50 + "px";
 
@@ -107,10 +109,12 @@ export const ModernBottomNavigation = () => {
 
 					activeIndicatorEndRef.current.style.width =
 						previousItemRightOffset - activeItemRightOffset + 50 + toRight + "px";
-					activeIndicatorEndRef.current.style.right = activeItemRightOffset - 50 - toLeft + "px";
+					activeIndicatorEndRef.current.style.right =
+						activeItemRightOffset - 50 - toLeft + "px";
 
 					setTimeout(() => {
-						if (!activeIndicatorStartRef.current || !activeIndicatorEndRef.current) return;
+						if (!activeIndicatorStartRef.current || !activeIndicatorEndRef.current)
+							return;
 						activeIndicatorEndRef.current.style.transition = "width 350ms ease";
 						activeIndicatorEndRef.current.style.width = "50px";
 
@@ -123,7 +127,8 @@ export const ModernBottomNavigation = () => {
 			} else {
 				activeIndicatorStartRef.current.style.visibility = "visible";
 
-				activeIndicatorStartRef.current.style.right = previousItemRightOffset - 50 - toLeft + "px";
+				activeIndicatorStartRef.current.style.right =
+					previousItemRightOffset - 50 - toLeft + "px";
 				activeIndicatorStartRef.current.style.width =
 					activeItemRightOffset - previousItemRightOffset - padding + 50 + "px";
 				setTimeout(() => {
@@ -137,7 +142,8 @@ export const ModernBottomNavigation = () => {
 					activeIndicatorEndRef.current.style.left = activeItemLeftOffset + "px";
 
 					setTimeout(() => {
-						if (!activeIndicatorStartRef.current || !activeIndicatorEndRef.current) return;
+						if (!activeIndicatorStartRef.current || !activeIndicatorEndRef.current)
+							return;
 
 						activeIndicatorEndRef.current.style.transition = "width 350ms ease";
 						activeIndicatorEndRef.current.style.width = "50px";

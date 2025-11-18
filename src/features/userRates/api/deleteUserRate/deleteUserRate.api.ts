@@ -1,5 +1,5 @@
 import { api } from "@/shared/api/api.ts";
-import { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
+import type { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
 import { createMutation } from "react-query-kit";
 
 interface IDeleteUserRate {

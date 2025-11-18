@@ -1,9 +1,9 @@
 import { api } from "@/shared/api/api.ts";
-import {
+import type {
 	IAnimeFranchise,
 	IAnimeFranchisesResponse,
 } from "@features/animes/api/getAnimeFranchise/getAnimeFranchise.types.ts";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createQuery } from "react-query-kit";
 
 interface IGetAnimeFranchise {

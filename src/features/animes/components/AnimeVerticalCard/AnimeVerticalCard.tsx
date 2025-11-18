@@ -4,7 +4,7 @@ import { Button } from "@components/ui/Button/Button.tsx";
 import { ImageView } from "@components/ui/ImageView/ImageView.tsx";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
 import { Link } from "@tanstack/react-router";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import styles from "./AnimeVerticalCard.module.css";
 
 interface IAnimeVerticalCardProps {
@@ -69,7 +69,11 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 				<Typography variant="title">{name}</Typography>
 			</div>
 
-			<BottomSheet title="Context menu" isShow={isOpen} onOutsideClick={() => setIsOpen(false)}>
+			<BottomSheet
+				title="Context menu"
+				isShow={isOpen}
+				onOutsideClick={() => setIsOpen(false)}
+			>
 				<div className={styles.mini_preview}>
 					<ImageView
 						allowFullscreen
@@ -84,7 +88,11 @@ export const AnimeVerticalCard: FC<IAnimeVerticalCardProps> = ({
 						</div>
 					</div>
 				</div>
-				<Button variant="secondary" onClick={onOpenInNewYabClick} className={styles.context_button}>
+				<Button
+					variant="secondary"
+					onClick={onOpenInNewYabClick}
+					className={styles.context_button}
+				>
 					Open in new tab
 				</Button>
 				<Button variant="delete" className={styles.context_button}>

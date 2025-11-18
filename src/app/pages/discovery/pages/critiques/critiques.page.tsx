@@ -2,7 +2,7 @@ import { getPosterImage } from "@/shared/utils/getPosterImage.ts";
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useGetCritiques } from "@features/forum/api/critiques/critiques.api.ts";
-import { ICritique } from "@features/forum/api/critiques/critiques.types.ts";
+import type { ICritique } from "@features/forum/api/critiques/critiques.types.ts";
 import { createLazyRoute } from "@tanstack/react-router";
 import { Button } from "@ui/Button/Button.tsx";
 import { Loader } from "@ui/Loader/Loader.tsx";

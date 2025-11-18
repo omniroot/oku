@@ -3,13 +3,19 @@ import { Button } from "@components/ui/Button/Button.tsx";
 import { Loader } from "@components/ui/Loader/Loader.tsx";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useGetUserRates } from "@features/userRates/api/getUserRates/getUserRates.api.ts";
-import { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import type { IUserRate } from "@features/userRates/api/getUserRates/getUserRates.types.ts";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { Link } from "@tanstack/react-router";
-import { FC, memo } from "react";
+import { type FC, memo } from "react";
 import styles from "./UserRates.module.css";
 
-const filters: IUserRateStatus[] = ["watching", "planned", "completed", "on_hold", "dropped"];
+const filters: IUserRateStatus[] = [
+	"watching",
+	"planned",
+	"completed",
+	"on_hold",
+	"dropped",
+];
 
 interface IUserRatesProps {
 	userId: string;

@@ -1,7 +1,7 @@
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
 import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { useGetAnimesInfinite } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { createLazyRoute } from "@tanstack/react-router";
@@ -42,7 +42,11 @@ export const OngoingsPage = () => {
 							/>
 						))}
 				</AnimeList>
-				<Button style={{ width: "100%" }} onClick={() => fetchNextPage()} loading={isFetching}>
+				<Button
+					style={{ width: "100%" }}
+					onClick={() => fetchNextPage()}
+					loading={isFetching}
+				>
 					More
 				</Button>
 			</div>

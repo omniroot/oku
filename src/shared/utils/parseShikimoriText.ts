@@ -5,7 +5,12 @@ interface IDescriptionItem {
 	linkCloseTag: string;
 }
 
-function replaceTextInRange(originalText: string, start: number, end: number, newText: string) {
+function replaceTextInRange(
+	originalText: string,
+	start: number,
+	end: number,
+	newText: string,
+) {
 	// Проверяем, что позиции корректны
 	if (start < 0 || end > originalText.length || start >= end) {
 		throw new Error("Некорректные позиции");

@@ -1,10 +1,10 @@
-import {
+import type {
 	IAnilibKodikPlayer,
 	IAnilibAnimeLibPlayer,
 	IAnilibVideo,
 } from "@features/anilib/api/getAnilibVideo/getAnilibVideo.types.ts";
-import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import axios, { AxiosRequestConfig } from "axios";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
+import axios, { type AxiosRequestConfig } from "axios";
 
 interface IGetAnilibVideo {
 	episodeId: number;

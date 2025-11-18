@@ -1,4 +1,4 @@
-import { IAuthTokens } from "@features/auth/api/auth.api.ts";
+import type { IAuthTokens } from "@features/auth/api/auth.api.ts";
 
 export const saveTokens = ({ access_token, refresh_token }: IAuthTokens) => {
 	if (access_token && refresh_token) {

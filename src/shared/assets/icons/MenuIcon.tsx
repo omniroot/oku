@@ -4,7 +4,11 @@ interface MenuIconProps {
 	color?: string;
 }
 
-export const MenuIcon = ({ width = 24, height = 24, color = "currentColor" }: MenuIconProps) => {
+export const MenuIcon = ({
+	width = 24,
+	height = 24,
+	color = "currentColor",
+}: MenuIconProps) => {
 	return (
 		<svg
 			width={width}

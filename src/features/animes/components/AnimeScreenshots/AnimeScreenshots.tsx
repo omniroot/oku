@@ -1,10 +1,10 @@
 import { RightArrowIcon } from "@/shared/assets/icons/RightArrowIcon.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@ui/Button/Button.tsx";
 import { HeadingSection } from "@ui/HeadingSection/HeadingSection.tsx";
 import { ImageView } from "@ui/ImageView/ImageView.tsx";
-import { FC } from "react";
+import type { FC } from "react";
 import styles from "./AnimeScreenshots.module.css";
 
 interface IAnimeScreenshotsProps {

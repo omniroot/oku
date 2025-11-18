@@ -1,7 +1,7 @@
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { useGetCollections } from "@features/forum/api/collections/collections.api.ts";
-import { ICollection } from "@features/forum/api/collections/collections.types.ts";
+import type { ICollection } from "@features/forum/api/collections/collections.types.ts";
 import { createLazyRoute } from "@tanstack/react-router";
 import { Button } from "@ui/Button/Button.tsx";
 import { Loader } from "@ui/Loader/Loader.tsx";
@@ -13,16 +13,19 @@ export const CollectionsPage = () => {
 		fetchNextPage: fetchNext,
 	} = useGetCollections({ variables: { limit: 15, page: 1 } });
 
-	const collections = collectionsPages?.pages.reduce<ICollection[]>((acc, collections) => {
-		for (const collection of collections) {
-			const lastCollectionId = acc[acc.length - 1]?.id;
+	const collections = collectionsPages?.pages.reduce<ICollection[]>(
+		(acc, collections) => {
+			for (const collection of collections) {
+				const lastCollectionId = acc[acc.length - 1]?.id;
 
-			if (lastCollectionId !== collection.id) {
-				acc.push(collection);
+				if (lastCollectionId !== collection.id) {
+					acc.push(collection);
+				}
 			}
-		}
-		return acc;
-	}, []);
+			return acc;
+		},
+		[],
+	);
 
 	// const onCollectionShikimoriButtonClick = (
 	// 	event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,

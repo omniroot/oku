@@ -1,9 +1,9 @@
 import { Badge } from "@components/ui/Badge/Badge.tsx";
 import { Tooltip } from "@components/ui/Tooltip/Tooltip.tsx";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
-import { IUser } from "@features/users/api/getUser/getUser.types.ts";
+import type { IUser } from "@features/users/api/getUser/getUser.types.ts";
 import dayjs from "dayjs";
-import { FC } from "react";
+import type { FC } from "react";
 import styles from "./UserCard.module.css";
 
 interface IUserCardProps {

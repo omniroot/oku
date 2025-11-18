@@ -1,9 +1,9 @@
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { useGetAnimeFranchise } from "@features/animes/api/getAnimeFranchise/getAnimeFranchise.api.ts";
 import { Link } from "@tanstack/react-router";
 import { HeadingSection } from "@ui/HeadingSection/HeadingSection.tsx";
 import { ImageView } from "@ui/ImageView/ImageView.tsx";
-import { FC } from "react";
+import type { FC } from "react";
 import styles from "./AnimeFranchises.module.css";
 
 interface IAnimeFranchisesProps {

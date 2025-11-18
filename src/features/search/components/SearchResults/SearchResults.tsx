@@ -6,7 +6,7 @@ import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard
 import { useSearch } from "@features/search/store/search.store.ts";
 import { useGetUsers } from "@features/users/api/getUsers/getUsers.api.ts";
 import { UserItem } from "@features/users/components/UserItem/UserItem.tsx";
-import { FC } from "react";
+import type { FC } from "react";
 
 interface IProps {
 	type?: "anime" | "user";

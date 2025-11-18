@@ -1,9 +1,9 @@
 import { graphql } from "@/shared/api/graphql.ts";
 import { GET_USER_RATES } from "@features/userRates/api/getUserRates/getUserRates.graphql.ts";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
-import { AxiosRequestConfig } from "axios";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import type { AxiosRequestConfig } from "axios";
 import { createInfiniteQuery } from "react-query-kit";
-import { IUserRate, IUserRatesResponse } from "./getUserRates.types.ts";
+import type { IUserRate, IUserRatesResponse } from "./getUserRates.types.ts";
 
 interface IGetUserRates {
 	userId: number;

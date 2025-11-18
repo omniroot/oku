@@ -1,7 +1,7 @@
 import { api } from "@/shared/api/api.ts";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { createInfiniteQuery } from "react-query-kit";
-import { ICollection } from "./collections.types.ts";
+import type { ICollection } from "./collections.types.ts";
 
 interface IGetCollections {
 	page: number;

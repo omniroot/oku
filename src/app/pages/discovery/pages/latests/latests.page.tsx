@@ -1,11 +1,11 @@
 import { AnimeList } from "@components/business/AnimeList/AnimeList.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
 import { HeadingSection } from "@components/ui/HeadingSection/HeadingSection.tsx";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
 import { useGetAnimesInfinite } from "@features/animes/api/getAnimes/getAnimes.api.ts";
 import { AnimeVerticalCard } from "@features/animes/components/AnimeVerticalCard/AnimeVerticalCard.tsx";
 import { OngoingsPage } from "@pages/discovery/pages/ongoings/ongoings.page.tsx";
-import { InfiniteData } from "@tanstack/react-query";
+import type { InfiniteData } from "@tanstack/react-query";
 import { createLazyRoute } from "@tanstack/react-router";
 import styles from "./latests.page.module.css";
 
@@ -61,7 +61,11 @@ export const LatestPage = () => {
 							/>
 						))}
 				</AnimeList>
-				<Button style={{ width: "100%" }} onClick={() => fetchNextPage()} loading={isFetching}>
+				<Button
+					style={{ width: "100%" }}
+					onClick={() => fetchNextPage()}
+					loading={isFetching}
+				>
 					More
 				</Button>
 			</div>

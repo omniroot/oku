@@ -1,5 +1,5 @@
 import { rootRoute } from "@/app/routes/router";
-import { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
+import type { IUserRateStatus } from "@features/userRates/types/userRates.types.ts";
 import { UserPage } from "@pages/user/user.page.tsx";
 import { createRoute } from "@tanstack/react-router";
 

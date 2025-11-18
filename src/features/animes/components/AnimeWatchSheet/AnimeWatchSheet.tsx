@@ -1,11 +1,11 @@
 import { BottomSheet } from "@components/ui/BottomSheet/BottomSheet.tsx";
 import { Button } from "@components/ui/Button/Button.tsx";
-import { ISelectOption, Select } from "@components/ui/Select/Select.tsx";
+import { type ISelectOption, Select } from "@components/ui/Select/Select.tsx";
 import { useGetAnilibAnime } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.ts";
 import { useGetAnilibEpisodes } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.api.ts";
-import { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
-import { IAnime } from "@features/animes/api/anime.interface.ts";
-import { FC, useEffect, useState } from "react";
+import type { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
+import type { IAnime } from "@features/animes/api/anime.interface.ts";
+import { type FC, useEffect, useState } from "react";
 import styles from "./AnimeWatchSheet.module.css";
 
 const getEpisodes = (episodes: IAnilibEpisode[] | undefined) => {
@@ -20,7 +20,9 @@ const getEpisodes = (episodes: IAnilibEpisode[] | undefined) => {
 };
 
 const getActiveEpisode = (episodes: ISelectOption[], userEpisode: number) => {
-	const episodeActive = episodes?.find((episode) => episode.value === String(userEpisode));
+	const episodeActive = episodes?.find(
+		(episode) => episode.value === String(userEpisode),
+	);
 	return episodeActive ?? episodes[0];
 };
 
@@ -29,7 +31,11 @@ interface IAnimeWatchSheetProps {
 	isShow: boolean;
 	onOutsideClick: () => void;
 }
-export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({ anime, isShow, onOutsideClick }) => {
+export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({
+	anime,
+	isShow,
+	onOutsideClick,
+}) => {
 	const { data: anilibAnime } = useGetAnilibAnime({ name: anime.name });
 	const { data: episodes, isSuccess } = useGetAnilibEpisodes({
 		variables: { name: anime.name },
@@ -55,7 +61,8 @@ export const AnimeWatchSheet: FC<IAnimeWatchSheetProps> = ({ anime, isShow, onOu
 
 	const onWatchButtonClick = () => {
 		const anilibEpisode = episodes?.find(
-			(ell) => ell.number === String(episodeActive?.value || anime.userRate?.episodes || 1),
+			(ell) =>
+				ell.number === String(episodeActive?.value || anime.userRate?.episodes || 1),
 		);
 
 		window.open(

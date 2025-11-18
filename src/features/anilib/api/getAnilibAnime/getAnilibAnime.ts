@@ -1,6 +1,6 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import axios, { AxiosRequestConfig } from "axios";
-import { IAnimelibSearch } from "./getAnilibAnime.types.ts";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
+import axios, { type AxiosRequestConfig } from "axios";
+import type { IAnimelibSearch } from "./getAnilibAnime.types.ts";
 
 interface IGetAnilibAnime {
 	name: string;

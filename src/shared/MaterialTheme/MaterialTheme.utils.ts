@@ -1,5 +1,10 @@
-import { MaterialScheme } from "@/shared/MaterialTheme/MaterialTheme.types.ts";
-import { Hct, TonalPalette, argbFromHex, hexFromArgb } from "@material/material-color-utilities";
+import type { MaterialScheme } from "@/shared/MaterialTheme/MaterialTheme.types.ts";
+import {
+	Hct,
+	TonalPalette,
+	argbFromHex,
+	hexFromArgb,
+} from "@material/material-color-utilities";
 
 export function getMaterialScheme(sourceColor: string): {
 	light: MaterialScheme;
@@ -156,14 +161,26 @@ export function applyMaterialTheme(
 		[`--md-source-color`, "#ee715a"], // фиксированное значение
 		[`--md-surface`, baseScheme.surface],
 		[`--md-surface-bright`, hexFromArgb(scheme.neutral.tone(type === "light" ? 24 : 27))], // подогнано под #423735
-		[`--md-surface-container`, hexFromArgb(scheme.neutral.tone(type === "light" ? 12 : 12))],
-		[`--md-surface-container-high`, hexFromArgb(scheme.neutral.tone(type === "light" ? 17 : 17))],
+		[
+			`--md-surface-container`,
+			hexFromArgb(scheme.neutral.tone(type === "light" ? 12 : 12)),
+		],
+		[
+			`--md-surface-container-high`,
+			hexFromArgb(scheme.neutral.tone(type === "light" ? 17 : 17)),
+		],
 		[
 			`--md-surface-container-highest`,
 			hexFromArgb(scheme.neutral.tone(type === "light" ? 22 : 23)),
 		],
-		[`--md-surface-container-low`, hexFromArgb(scheme.neutral.tone(type === "light" ? 10 : 11))],
-		[`--md-surface-container-lowest`, hexFromArgb(scheme.neutral.tone(type === "light" ? 4 : 5))],
+		[
+			`--md-surface-container-low`,
+			hexFromArgb(scheme.neutral.tone(type === "light" ? 10 : 11)),
+		],
+		[
+			`--md-surface-container-lowest`,
+			hexFromArgb(scheme.neutral.tone(type === "light" ? 4 : 5)),
+		],
 		[`--md-surface-dim`, hexFromArgb(scheme.neutral.tone(type === "light" ? 6 : 6))], // подогнано под #1a1110
 		[`--md-surface-tint`, baseScheme.surfaceTint],
 		[`--md-surface-variant`, baseScheme.surfaceVariant],

@@ -1,5 +1,5 @@
-import { IAnimelibSearch } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.types.ts";
-import { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
+import type { IAnimelibSearch } from "@features/anilib/api/getAnilibAnime/getAnilibAnime.types.ts";
+import type { IAnilibEpisode } from "@features/anilib/api/getAnilibEpisodes/getAnilibEpisodes.types.ts";
 import axios from "axios";
 import { createQuery } from "react-query-kit";
 

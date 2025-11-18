@@ -60,10 +60,10 @@
 // 	};
 
 // 	// if (video.player === "Kodik") {
-// 	// 	// @ts-ignore
+// 	// 	// @ts-expect-error
 // 	// 	const quality = video.src.split("/").pop();
 // 	// 	return {
-// 	// 		// @ts-ignore
+// 	// 		// @ts-expect-error
 // 	// 		link: video.src,
 // 	// 		player: video.player,
 // 	// 		quality,

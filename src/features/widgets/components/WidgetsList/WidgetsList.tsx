@@ -1,4 +1,4 @@
-import { useWidgets, IWidgets } from "@features/widgets/stores/widgets.store.tsx";
+import { useWidgets, type IWidgets } from "@features/widgets/stores/widgets.store.tsx";
 
 export const WidgetsList = () => {
 	const { widgets, getWidget, mounted } = useWidgets();
