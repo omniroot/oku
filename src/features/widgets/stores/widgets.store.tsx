@@ -3,7 +3,7 @@ import { HelloWidget } from "@features/widgets/components/HelloWidget/HelloWidge
 import { TestWidget } from "@features/widgets/components/TestWidget/TestWidget.tsx";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // TODO:
 // Придумать как хранить инфу об виджетах, что бы там было состояние, можно ли его выключать и настройки для виджета
@@ -79,7 +79,10 @@ export const useWidgets = () => {
 	};
 
 	const toggleWidget = (name: IWidgets) => {
-		setStore({ ...store, [name]: { ...store[name], state: !store[name].state } });
+		setStore({
+			...store,
+			[name]: { ...store[name], state: !store[name].state },
+		});
 	};
 
 	useEffect(() => {
