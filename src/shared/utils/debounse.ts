@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const debounce = <F extends (...args: unknown[]) => void>(
 	func: F,
 	timeout = 300,

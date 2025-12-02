@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": [
-      "ES2023",
+      "ES2022",
       "DOM",
       "DOM.Iterable"
     ],
     "module": "ESNext",
     "types": [
-      "vite/client",
-      "node"
+      "vite/client"
     ],
     "skipLibCheck": true,
     /* Bundler mode */
@@ -50,7 +50,6 @@
     }
   },
   "include": [
-    "src",
-    "vite.config.ts"
+    "src"
   ]
 }

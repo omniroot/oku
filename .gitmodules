@@ -1,3 +1,6 @@
 [submodule "src/shared/components/ui"]
 	path = src/shared/components/ui
 	url = https://github.com/omniroot/uikit.git
+[submodule "src/theme"]
+	path = src/theme
+	url = https://github.com/omniroot/material-chakra

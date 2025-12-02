@@ -1,5 +1,5 @@
 :root {
-	--color-primary: var(--primary);
+	/* --color-primary: var(--primary); */
 	/* --color-primary-80: alpha(var(--primary)); */
 	/* --color-ternary: var(--tertiary);
 	--color-secondary: var(--surface_container);
@@ -9,10 +9,10 @@
 	--color-text: var(--on_background);
 	--color-subtext: var(--on_secondary_container); */
 
-	--color-selection-text: hsl(30, 88%, 68%);
+	/* --color-selection-text: hsl(30, 88%, 68%);
 	--color-selection-background: hsl(27, 14%, 20%);
 
-	--color-red: hsl(0, 73%, 54%);
+	--color-red: hsl(0, 73%, 54%); */
 
 	--color-shikimori: #cdd2d0;
 	--color-shikimori-hover: #1a4646;
@@ -24,7 +24,7 @@
 	--color-nhentai-hover: #910f2d;
 
 	/* Text size */
-	--text-size-mini: 0.675rem;
+	/* --text-size-mini: 0.675rem;
 	--text-size-small: 0.875rem;
 	--text-size-base: 1rem;
 	--text-size-medium: 1.25rem;
@@ -44,7 +44,7 @@
 	--blur: blur(8px);
 	--animation:
 		width 200ms, height 200ms, transform 200ms, opacity 200ms, scale 200ms, filter 200ms,
-		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms, translate 200ms;
+		background-color 200ms, color 200ms, border 200ms, box-shadow 200ms, translate 200ms; */
 }
 
 /* @media (prefers-color-scheme: light) {

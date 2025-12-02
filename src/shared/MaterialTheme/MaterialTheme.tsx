@@ -1,9 +1,9 @@
-import {
-	getMaterialScheme,
-	applyMaterialTheme,
-} from "@/shared/MaterialTheme/MaterialTheme.utils.ts";
 import type { IUIColor } from "@components/ui/UIProvider/UIProvider.types.ts";
-import { useState, useEffect, useContext, createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+	applyMaterialTheme,
+	getMaterialScheme,
+} from "@/shared/MaterialTheme/MaterialTheme.utils.ts";
 import "./MaterialTheme.css";
 
 interface IProps {
